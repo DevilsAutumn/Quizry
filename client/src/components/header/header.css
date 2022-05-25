@@ -62,7 +62,7 @@ header ul a:hover {
   position: absolute;
   background: var(--green);
   width: 80%;
-  width: calc(100%+30px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
