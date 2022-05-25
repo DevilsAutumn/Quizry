@@ -3,6 +3,7 @@ import "./header.css";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import logo from "../../Media/logo.png";
 
 const Header = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -50,11 +51,9 @@ const Header = () => {
 
   return (
     <header>
-      <div className="logo">
-        <h1>
-          <NavLink to="/logo">Quizry</NavLink>
-        </h1>
-      </div>
+      <Link to="/">
+        <img src={logo} alt="logo" id="logo" />
+      </Link>
       <ul>
         <li>
           <NavLink to="/" activeclassname="active">

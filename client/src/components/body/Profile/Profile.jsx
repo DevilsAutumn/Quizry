@@ -163,121 +163,119 @@ const Profile = () => {
 
   return (
     <div className="profile-div">
-      <div className="p-div">
-        <div className="p-card">
-          <div className="p-avatar">
-            <img src={avatar ? avatar : user.avatar} alt="Avatar" />
-            <span>
-              <i className="fa fa-camera" aria-hidden="true"></i>
-              <p>Change</p>
+      <div className="p-card">
+        <div className="p-avatar">
+          <img src={avatar ? avatar : user.avatar} alt="Avatar" />
+          <span>
+            <i className="fa fa-camera" aria-hidden="true"></i>
+            <p>Change</p>
+            <input
+              type="file"
+              name="file"
+              id="file_up"
+              onChange={changeAvatar}
+            />
+          </span>
+        </div>
+        <div className="p-info">
+          <div className="p-user-details">
+            <div className="role">
+              <h2>
+                {isAdmin ? "Admin👑" : isEvaluator ? "Evaluator📝" : "User"}
+              </h2>
+            </div>
+            <div id="msg">
+              {err && showErrMsg(err)}
+              {success && showSuccessMsg(success)}
+              {loading && <h3>Loading...</h3>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
               <input
-                type="file"
-                name="file"
-                id="file_up"
-                onChange={changeAvatar}
+                type="text"
+                name="name"
+                id="name"
+                defaultValue={user.name}
+                placeholder="Your name"
+                onChange={handleChange}
               />
-            </span>
-          </div>
-          <div className="p-info">
-            <div className="p-user-details">
-              <div className="role">
-                <h2>
-                  {isAdmin ? "Admin👑" : isEvaluator ? "Evaluator📝" : "User"}
-                </h2>
-              </div>
-              <div id="msg">
-                {err && showErrMsg(err)}
-                {success && showSuccessMsg(success)}
-                {loading && <h3>Loading...</h3>}
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  defaultValue={user.name}
-                  placeholder="Your name"
-                  onChange={handleChange}
-                />
-              </div>
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  defaultValue={user.email}
-                  placeholder="Your email address"
-                  disabled
-                />
-              </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                defaultValue={user.email}
+                placeholder="Your email address"
+                disabled
+              />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="password">New Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Your password"
-                  value={password}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className="form-group">
+              <label htmlFor="password">New Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Your password"
+                value={password}
+                onChange={handleChange}
+              />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="cf_password">Confirm New Password</label>
-                <input
-                  type="password"
-                  name="cf_password"
-                  id="cf_password"
-                  placeholder="Confirm password"
-                  value={cf_password}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className="form-group">
+              <label htmlFor="cf_password">Confirm New Password</label>
+              <input
+                type="password"
+                name="cf_password"
+                id="cf_password"
+                placeholder="Confirm password"
+                value={cf_password}
+                onChange={handleChange}
+              />
+            </div>
 
-              {/* <div>
+            {/* <div>
                 <em style={{ color: "crimson" }}>
                   * If you update your password here, you will not be able to
                   login quickly using google and facebook.
                 </em>
               </div> */}
-              <div className="p-btns">
-                <button disabled={loading} onClick={handleUpdate}>
-                  Update
+            <div className="p-btns">
+              <button disabled={loading} onClick={handleUpdate}>
+                Update
+              </button>
+              {user.role > 0 && (
+                <button
+                  onClick={() => {
+                    setAllUsers(!allUsers);
+                    setUserBtn(false);
+                    setHideEvaluate(true);
+                  }}
+                >
+                  {allUsers ? "Evaluate" : "My contributions"}
                 </button>
-                {user.role > 0 && (
-                  <button
-                    onClick={() => {
-                      setAllUsers(!allUsers);
-                      setUserBtn(false);
-                      setHideEvaluate(true);
-                    }}
-                  >
-                    {allUsers ? "Evaluate" : "My contributions"}
-                  </button>
-                )}
-                {isAdmin && (
-                  <button
-                    onClick={() => {
-                      setUserBtn(true);
-                      setHideEvaluate(false);
-                    }}
-                  >
-                    See Users
-                  </button>
-                )}
-              </div>
+              )}
+              {isAdmin && (
+                <button
+                  onClick={() => {
+                    setUserBtn(true);
+                    setHideEvaluate(false);
+                  }}
+                >
+                  See Users
+                </button>
+              )}
             </div>
           </div>
-          {user.role === 0 && <Contributions />}
-          {userBtn && !isEvaluator && (
-            <AllUsers users={users} handleDelete={handleDelete} />
-          )}
-          {user.role > 0 && hideEvaluate && <Evaluate allUsers={allUsers} />}
         </div>
+        {user.role === 0 && <Contributions />}
+        {userBtn && !isEvaluator && (
+          <AllUsers users={users} handleDelete={handleDelete} />
+        )}
+        {user.role > 0 && hideEvaluate && <Evaluate allUsers={allUsers} />}
       </div>
     </div>
   );

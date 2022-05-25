@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import logo from "../../Media/logo.png";
 
 const Footer = () => {
   return (
@@ -7,8 +8,8 @@ const Footer = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            {/* <img src={logo1x} alt="" /> */}
-            <h1>Q</h1>
+            <img src={logo} alt="" />
+            <h1>uizry</h1>
           </div>
           <div className="footer-links">
             <a href="/">

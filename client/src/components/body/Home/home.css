@@ -1,7 +1,8 @@
-.home-div h1 {
+.heading-home h1 {
   font-size: 10vw;
   color: white;
   font-family: "Outfit", sans-serif;
+  align-self: flex-end;
 }
 .home-div {
   height: 93vh;
@@ -10,9 +11,16 @@
   justify-content: center;
   flex-direction: column;
   background-color: var(--red);
-  padding-top: 15vh;
+  padding-top: 10vh;
 }
-
+.heading-home {
+  display: flex;
+  align-items: center;
+}
+.heading-home > img {
+  height: 20vw;
+  margin-bottom: auto;
+}
 .home-div p {
   font-size: 2vw;
   color: white;

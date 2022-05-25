@@ -7,8 +7,11 @@ header {
   flex-wrap: wrap;
   padding: 0 40px;
 }
-
-header a {
+#logo {
+  height: 50px;
+  /* height: fit-content; */
+}
+header ul a {
   color: black;
   padding: 8px 30px;
   font-family: "Poppins", sans-serif;
@@ -18,7 +21,7 @@ header ul li {
   margin-right: 15px;
 }
 
-header a:hover {
+header ul a:hover {
   background-color: var(--red);
   color: white;
   border-radius: 10px;

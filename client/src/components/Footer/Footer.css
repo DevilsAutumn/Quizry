@@ -42,7 +42,7 @@ footer > p {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 50%;
 }
 
