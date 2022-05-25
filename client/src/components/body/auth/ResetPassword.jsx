@@ -1,0 +1,105 @@
+import React, { useState } from "react";
+import logingif from "../../../Media/login.gif";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import {
+  showErrMsg,
+  showSuccessMsg,
+} from "../../Utils/Notification/Notification";
+import { isLength, isMatch } from "../../Utils/validation/Validation";
+
+const initalState = {
+  password: "",
+  cf_password: "",
+  err: "",
+  success: "",
+};
+
+const ResetPassword = () => {
+  const [data, setData] = useState(initalState);
+  const navigate = useNavigate();
+  const { token } = useParams();
+
+  const { password, cf_password, err, success } = data;
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value, err: "", success: "" });
+  };
+
+  const handleResetPass = async () => {
+    if (isLength(password))
+      return setData({
+        ...data,
+        err: "Password must be at least 6 characters.",
+        success: "",
+      });
+
+    if (!isMatch(password, cf_password))
+      return setData({ ...data, err: "Password did not match.", success: "" });
+
+    try {
+      const res = await axios.post(
+        "/user/reset",
+        { password },
+        {
+          headers: { Authorization: token },
+        }
+      );
+
+      setData({ ...data, err: "", success: res.data.msg });
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+      return;
+    } catch (err) {
+      err.response.data.msg &&
+        setData({ ...data, err: err.response.data.msg, success: "" });
+    }
+  };
+
+  return (
+    <div className="login-page">
+      <div className="logo-div">
+        <img src={logingif} alt="" />
+      </div>
+      <div className="login-section">
+        <h1>Reset passowrd</h1>
+        {err && showErrMsg(err)}
+        {success && showSuccessMsg(success)}
+        <form>
+          <div>
+            <label htmlFor="password">Enter new password</label>
+            <input
+              type="password"
+              placeholder="Enter new password"
+              id="password"
+              value={password}
+              name="password"
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div>
+            <label htmlFor="cf_password">Re-enter password</label>
+            <input
+              type="password"
+              placeholder="Re-enter new password"
+              id="cf_password"
+              value={cf_password}
+              name="cf_password"
+              onChange={handleChangeInput}
+            />
+          </div>
+        </form>
+        <div className="row">
+          <button type="submit" onClick={handleResetPass}>
+            Reset password
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ResetPassword;

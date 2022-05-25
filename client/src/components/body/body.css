@@ -1,0 +1,14 @@
+section {
+  background-color: var(--red);
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+}
+
+#home {
+  background-color: var(--red);
+  max-height: 93vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

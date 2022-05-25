@@ -1,0 +1,119 @@
+.login-div {
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--red);
+}
+
+.login-page {
+  background-color: white;
+  /* max-width: 55%; */
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-top: 12vh;
+  margin-bottom: 15vh;
+  min-height: 75vh;
+}
+
+.login-page img {
+  max-width: 25vw;
+  max-height: 50vh;
+  margin: 10%;
+}
+
+.logo-div {
+  margin-right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-page label {
+  display: block;
+  font-family: "Outfit", sans-serif;
+}
+.login-section {
+  width: 20vw;
+  padding: 30px;
+  border-left: 2px solid grey;
+}
+.login-section h1 {
+  font-size: 2rem;
+  font-family: "Outfit", sans-serif;
+  margin-bottom: 20px;
+}
+
+.login-section input {
+  width: 90%;
+  height: 25px;
+  margin: 6px 0px;
+  border: 2px solid #777;
+  border-radius: 4px;
+  padding: 5px;
+  outline: none;
+}
+
+.login-section input::placeholder {
+  font-family: "Outfit", sans-serif;
+  font-weight: 100;
+}
+
+.login-section button {
+  background-color: var(--red);
+  padding: 8px 20px;
+  margin-top: 10px;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  border-radius: 4px;
+  min-width: 100px;
+  transition: all 0.2s ease;
+}
+
+.login-section button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 2px 5px #777;
+}
+
+/* .hr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+.hr > hr {
+  width: 35%;
+} */
+.row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+}
+.row a {
+  margin-top: 10px;
+  color: crimson;
+}
+
+.login-section p {
+  font-family: "Outfit", sans-serif;
+  margin: 10px 0;
+  font-weight: 100;
+}
+#switchlink {
+  font-family: "Outfit", sans-serif;
+  color: #111;
+  font-weight: 500;
+}
+
+.notfound {
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--red);
+}

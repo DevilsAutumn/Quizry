@@ -1,0 +1,29 @@
+.aem,
+.asm {
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Outfit", sans-serif;
+
+  background-color: var(--red);
+}
+p {
+  margin: 10px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 200;
+}
+.aem img {
+  height: 50vh;
+}
+
+.asm img {
+  height: 50vh;
+}
+
+.aem,
+.asm h1 {
+  font-family: "Outfit", sans-serif;
+}
