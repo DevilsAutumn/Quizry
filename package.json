@@ -29,7 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.4",
     "node-fetch": "^3.2.4",
-    "nodemailer": "^6.7.5"
+    "nodemailer": "^6.7.5",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
