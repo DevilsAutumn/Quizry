@@ -220,7 +220,7 @@ const userCtrl = {
   },
   deleteUser: async (req, res) => {
     try {
-      await Users.findOneAndDelete(req.params.id);
+      await Users.findOneAndDelete({ _id: req.params.id });
 
       res.json({ msg: "Deleted successfully" });
     } catch (err) {

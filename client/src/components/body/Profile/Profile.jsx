@@ -148,9 +148,7 @@ const Profile = () => {
     try {
       if (user._id !== id) {
         if (
-          window.confirm(
-            `Are you sure you want to delete ${user.name}'s account?`
-          )
+          window.confirm(`Are you sure you want to delete ${id}'s account?`)
         ) {
           setLoading(true);
           await axios.delete(`/user/delete/${id}`, {
