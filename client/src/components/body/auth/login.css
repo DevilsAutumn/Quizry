@@ -18,7 +18,7 @@
   padding: 20px;
   margin-top: 12vh;
   margin-bottom: 15vh;
-  min-height: 75vh;
+  height: 75vh;
 }
 
 .login-page img {
@@ -41,6 +41,7 @@
   width: 20vw;
   padding: 30px;
   border-left: 2px solid grey;
+  overflow: auto;
 }
 .login-section h1 {
   font-size: 2rem;
