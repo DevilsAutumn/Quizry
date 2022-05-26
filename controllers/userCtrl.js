@@ -118,7 +118,7 @@ const userCtrl = {
 
       const access_token = createAccessToken({ id: user._id });
 
-      const url = `${CLIENT_URL}/user/reset/${access_token}`;
+      const url = `${CLIENT_URL}user/reset/${access_token}`;
 
       sendResetMail(email, url, "Reset your password");
       res.json({ msg: "To reset the password, please check your mail." });

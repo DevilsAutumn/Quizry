@@ -22,7 +22,7 @@ const Body = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/*" element={<NotFound />} />
+
         <Route
           path="/login"
           element={isLogged ? <NotFound /> : <Login />}
@@ -57,6 +57,7 @@ const Body = () => {
           path="/edit_user/:id"
           element={isAdmin ? <EditUser /> : <NotFound />}
         />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
   );
