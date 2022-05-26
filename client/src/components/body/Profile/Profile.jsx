@@ -147,7 +147,11 @@ const Profile = () => {
   const handleDelete = async (id) => {
     try {
       if (user._id !== id) {
-        if (window.confirm("Are you sure you want to delete this account?")) {
+        if (
+          window.confirm(
+            `Are you sure you want to delete ${user.name}'s account?`
+          )
+        ) {
           setLoading(true);
           await axios.delete(`/user/delete/${id}`, {
             headers: { Authorization: token },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AllUsers = ({ allUsers, users, handleDelete }) => {
+const AllUsers = ({ users, handleDelete }) => {
   return (
     <div className="p-contributions">
       <h1>Users</h1>
