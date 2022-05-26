@@ -60,42 +60,44 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="logo-div">
-        <img src={logingif} alt="" />
-      </div>
-      <div className="login-section">
-        <h1>Reset passowrd</h1>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
-        <form>
-          <div>
-            <label htmlFor="password">Enter new password</label>
-            <input
-              type="password"
-              placeholder="Enter new password"
-              id="password"
-              value={password}
-              name="password"
-              onChange={handleChangeInput}
-            />
+    <div className="login-div">
+      <div className="login-page">
+        <div className="logo-div">
+          <img src={logingif} alt="" />
+        </div>
+        <div className="login-section">
+          <h1>Reset passowrd</h1>
+          {err && showErrMsg(err)}
+          {success && showSuccessMsg(success)}
+          <form>
+            <div>
+              <label htmlFor="password">Enter new password</label>
+              <input
+                type="password"
+                placeholder="Enter new password"
+                id="password"
+                value={password}
+                name="password"
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div>
+              <label htmlFor="cf_password">Re-enter password</label>
+              <input
+                type="password"
+                placeholder="Re-enter new password"
+                id="cf_password"
+                value={cf_password}
+                name="cf_password"
+                onChange={handleChangeInput}
+              />
+            </div>
+          </form>
+          <div className="row">
+            <button type="submit" onClick={handleResetPass}>
+              Reset password
+            </button>
           </div>
-          <div>
-            <label htmlFor="cf_password">Re-enter password</label>
-            <input
-              type="password"
-              placeholder="Re-enter new password"
-              id="cf_password"
-              value={cf_password}
-              name="cf_password"
-              onChange={handleChangeInput}
-            />
-          </div>
-        </form>
-        <div className="row">
-          <button type="submit" onClick={handleResetPass}>
-            Reset password
-          </button>
         </div>
       </div>
     </div>

@@ -35,31 +35,33 @@ const ForgotPassword = () => {
     }
   };
   return (
-    <div className="login-page">
-      <div className="logo-div">
-        <img src={logingif} alt="" />
-      </div>
-      <div className="login-section">
-        <h1>Forgot passowrd?</h1>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
-        <form>
-          <div>
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="text"
-              placeholder="Enter your email address"
-              id="email"
-              value={email}
-              name="email"
-              onChange={handleChangeInput}
-            />
+    <div className="login-div">
+      <div className="login-page">
+        <div className="logo-div">
+          <img src={logingif} alt="" />
+        </div>
+        <div className="login-section">
+          <h1>Forgot password?</h1>
+          {err && showErrMsg(err)}
+          {success && showSuccessMsg(success)}
+          <form>
+            <div>
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="text"
+                placeholder="Enter your email address"
+                id="email"
+                value={email}
+                name="email"
+                onChange={handleChangeInput}
+              />
+            </div>
+          </form>
+          <div className="row">
+            <button type="submit" onClick={forgotPassword}>
+              Verify Email
+            </button>
           </div>
-        </form>
-        <div className="row">
-          <button type="submit" onClick={forgotPassword}>
-            Verify Email
-          </button>
         </div>
       </div>
     </div>
