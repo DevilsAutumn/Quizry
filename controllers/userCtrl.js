@@ -16,6 +16,11 @@ const userCtrl = {
         return res.status(400).json({ msg: "Invalid Email." });
 
       const user = await Users.findOne({ email });
+      const username = await Users.findOne({ name });
+
+      if (username)
+        return res.status(400).json({ msg: "This Username already exists" });
+
       if (user)
         return res.status(400).json({ msg: "This email already exists" });
       if (password.length < 6)

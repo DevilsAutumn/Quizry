@@ -95,7 +95,7 @@ const Register = () => {
           {success && showSuccessMsg(success)}
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Username</label>
               <input
                 type="text"
                 placeholder="Enter your name"
