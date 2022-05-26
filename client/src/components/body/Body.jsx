@@ -44,7 +44,7 @@ const Body = () => {
           exact
         />
         <Route
-          path="/user/activate/:activation_token"
+          path="user/activate/:activation_token"
           element={<ActivationEmail />}
           exact
         />
