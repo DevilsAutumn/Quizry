@@ -30,7 +30,8 @@
     "mongoose": "^6.3.4",
     "node-fetch": "^3.2.4",
     "nodemailer": "^6.7.5",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-loader-spinner": "^6.0.0-0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

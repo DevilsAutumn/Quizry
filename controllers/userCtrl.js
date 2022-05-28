@@ -1,4 +1,7 @@
 const Users = require("../models/userModel");
+const Question = require("../models/QuestionModel");
+const VerifiedQuestion = require("../models/VerifiedQuestionModel");
+const Contributor = require("../models/ContributorsModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sendMail = require("./sendMail");
@@ -107,6 +110,7 @@ const userCtrl = {
         if (err) return res.status(400).json({ msg: "Please login now!" });
 
         const access_token = createAccessToken({ id: user.id });
+
         res.json({ access_token });
       });
     } catch (err) {
@@ -202,6 +206,31 @@ const userCtrl = {
         }
       );
 
+      await Question.updateMany(
+        { posted_by_id: req.user.id },
+        {
+          posted_by_name: name,
+        }
+      );
+
+      await VerifiedQuestion.updateMany(
+        { posted_by_id: req.user.id },
+        {
+          posted_by_name: name,
+        }
+      ).catch((err) => {
+        return;
+      });
+
+      await Contributor.updateOne(
+        {
+          id: req.user.id,
+        },
+        {
+          name,
+        }
+      );
+
       res.json({ msg: "updated successfully" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -228,6 +257,203 @@ const userCtrl = {
       await Users.findOneAndDelete({ _id: req.params.id });
 
       res.json({ msg: "Deleted successfully" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  addQuestion: async (req, res) => {
+    try {
+      const { category, difficulty, question, type, options, correct_option } =
+        req.body;
+
+      const username = await Users.findById({ _id: req.user.id });
+      const newQuestion = new Question({
+        category,
+        difficulty,
+        question,
+        type,
+        options,
+        correct_option,
+        posted_by_id: req.user.id,
+        posted_by_name: username.name,
+        status: "Pending",
+      });
+      await newQuestion.save();
+      await Contributor.findOneAndUpdate(
+        {
+          id: req.user.id,
+        },
+        {
+          name: username.name,
+          $inc: { totalcontribution: 1, pending: 1 },
+        },
+        {
+          upsert: true,
+        }
+      );
+
+      res.status(200).json({
+        msg: "Your Question has been posted. Now please wait for evaluation.",
+      });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  approveQuestion: async (req, res) => {
+    try {
+      const { reason, status } = req.body;
+      const pendingQuestion = await Question.findById({ _id: req.params.id });
+      const {
+        category,
+        difficulty,
+        question,
+        type,
+        options,
+        correct_option,
+        posted_by_id,
+        posted_by_name,
+      } = pendingQuestion;
+
+      await Question.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          category,
+          difficulty,
+          question,
+          type,
+          options,
+          correct_option,
+          posted_by_id,
+          posted_by_name,
+          status,
+          reason,
+        }
+      );
+
+      if (status !== "Declined") {
+        const newVerifiedQuestion = new VerifiedQuestion({
+          category,
+          difficulty,
+          question,
+          type,
+          options,
+          correct_option,
+          posted_by_id,
+          posted_by_name,
+          evaluated_by: req.user.id,
+        });
+
+        await newVerifiedQuestion.save();
+        await Contributor.findOneAndUpdate(
+          {
+            id: posted_by_id,
+          },
+          {
+            $inc: { accepted: 1 },
+          },
+          {
+            upsert: true,
+          }
+        );
+      } else {
+        await Contributor.findOneAndUpdate(
+          {
+            id: posted_by_id,
+          },
+          {
+            $inc: { declined: 1 },
+          },
+          {
+            upsert: true,
+          }
+        );
+      }
+      await Contributor.findOneAndUpdate(
+        {
+          id: req.user.id,
+        },
+        {
+          $inc: { pending: -1 },
+        },
+        {
+          upsert: true,
+        }
+      );
+
+      res.status(200).json({ msg: "Question Evaluated successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getUserQuestions: async (req, res) => {
+    try {
+      const UserQuestions = await Question.find({
+        posted_by_id: req.user.id,
+      });
+
+      return res.json(UserQuestions);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAllPendingQuestions: async (req, res) => {
+    try {
+      const data = await Question.find({ status: "Pending" });
+
+      return res.json(data);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getOnePendingQuestion: async (req, res) => {
+    try {
+      const data = await Question.find({ _id: req.params.id });
+      return res.json(data);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAllQuestions: async (req, res) => {
+    try {
+      const data = await Question.find();
+      return res.json(data);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getQuestionStats: async (req, res) => {
+    try {
+      const data = await Contributor.find({
+        id: req.user.id,
+      });
+      return res.json(data);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getStats: async (req, res) => {
+    try {
+      const data = await Contributor.aggregate([
+        {
+          $group: {
+            _id: "",
+            TotalQuestions: { $sum: "$totalcontribution" },
+            AcceptedQuestions: { $sum: "$accepted" },
+            DeclinedQuestions: { $sum: "$declined" },
+            pendingQuestion: { $sum: "$pending" },
+          },
+        },
+      ]);
+      return res.json(data);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getTopContributors: async (req, res) => {
+    try {
+      const data = await Contributor.find().sort({ accepted: -1 });
+
+      return res.json(data);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

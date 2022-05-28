@@ -5,7 +5,6 @@ const AllUsers = ({ users, handleDelete }) => {
   return (
     <div className="p-contributions">
       <h1>Users</h1>
-
       <table className="allusers">
         <thead>
           <tr>
@@ -30,7 +29,7 @@ const AllUsers = ({ users, handleDelete }) => {
                   : "Admin"}
               </td>
               <td id="actions">
-                <Link to={`/edit_user/${user._id}`}>
+                <Link to={`/profile/all-users/edit-user/${user._id}`}>
                   <i
                     className="fa fa-pencil-square-o action-icon"
                     aria-hidden="true"

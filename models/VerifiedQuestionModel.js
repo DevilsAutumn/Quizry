@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const QuestionSchema = new mongoose.Schema(
+const EvaluatedQuestionSchema = new mongoose.Schema(
   {
     category: {
       type: String,
@@ -10,7 +10,6 @@ const QuestionSchema = new mongoose.Schema(
     },
     question: {
       type: String,
-      trim: true,
     },
     type: {
       type: String,
@@ -21,7 +20,7 @@ const QuestionSchema = new mongoose.Schema(
     },
     correct_option: {
       type: String,
-      required: [true, "Please enter a correct answer."],
+      required: [true, "Please enter correct option."],
     },
     posted_by_id: {
       type: String,
@@ -29,15 +28,11 @@ const QuestionSchema = new mongoose.Schema(
     posted_by_name: {
       type: String,
     },
-    status: {
-      type: String,
-      required: true,
-    },
-    reason: {
+    evaluated_by: {
       type: String,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Questions", QuestionSchema);
+module.exports = mongoose.model("ApprovedQuestions", EvaluatedQuestionSchema);

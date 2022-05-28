@@ -62,7 +62,7 @@ const Header = () => {
         </li>
         <li>
           <NavLink to="/api" activeclassname="active">
-            Api
+            API
           </NavLink>
         </li>
         <li>

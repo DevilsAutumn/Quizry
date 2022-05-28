@@ -32,4 +32,37 @@ router.patch("/update_role/:id", auth, authAdmin, userCtrl.updateUserRole);
 
 router.delete("/delete/:id", auth, authAdmin, userCtrl.deleteUser);
 
+router.post("/add_question", auth, userCtrl.addQuestion);
+
+router.post(
+  "/evaluate_question/:id",
+  auth,
+  authEvaluator,
+  userCtrl.approveQuestion
+);
+
+router.get("/my_questions/user=:id", auth, userCtrl.getUserQuestions);
+
+router.get(
+  "/pending_questions",
+  auth,
+  authEvaluator,
+  userCtrl.getAllPendingQuestions
+);
+
+router.get(
+  "/one_pending_question/:id",
+  auth,
+  authEvaluator,
+  userCtrl.getOnePendingQuestion
+);
+
+router.get("/all_questions", userCtrl.getAllQuestions);
+
+router.get("/questionStats", auth, userCtrl.getQuestionStats);
+
+router.get("/stats", userCtrl.getStats);
+
+router.get("/top_contributors", userCtrl.getTopContributors);
+
 module.exports = router;

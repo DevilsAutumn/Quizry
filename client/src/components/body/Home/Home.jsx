@@ -17,7 +17,7 @@ const Home = () => {
         <p>Free to use, user-contributed trivia questions database</p>
         <div className="home-btn">
           <Link to="/api">
-            <button>Api</button>
+            <button>API</button>
           </Link>
           <Link to="/donate">
             <button>Donate</button>

@@ -7,16 +7,19 @@ import NotFound from "../Utils/NotFound/NotFound";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import Home from "./Home/Home";
-import Profile from "./Profile/Profile";
-import EditUser from "./Profile/EditUser";
+import Profile from "./Profile Screens/Profile";
+import EditUser from "./Profile Screens/EditUser";
 import "./body.css";
 
 import { useSelector } from "react-redux";
+import EvaluationScreen from "./Profile Screens/EvaluationScreen";
+import Contribute from "./Contribute Page/Contribute";
+import PostQuestion from "./Contribute Page/PostQuestion";
 
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
 
-  const { isLogged, isAdmin } = auth;
+  const { isLogged, isAdmin, isEvaluator } = auth;
 
   return (
     <>
@@ -31,6 +34,16 @@ const Body = () => {
         <Route
           path="/register"
           element={isLogged ? <NotFound /> : <Register />}
+          exact
+        />
+        <Route
+          path="/contribute/"
+          element={isLogged ? <Contribute /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/contribute/post-question"
+          element={isLogged ? <PostQuestion /> : <NotFound />}
           exact
         />
         <Route
@@ -54,7 +67,27 @@ const Body = () => {
           exact
         />
         <Route
-          path="/edit_user/:id"
+          path="/profile/evaluate"
+          element={isEvaluator || isAdmin ? <Profile /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/profile/my-contributions"
+          element={isLogged ? <Profile /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/profile/all-users"
+          element={isAdmin ? <Profile /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/profile/evaluate/question=:id"
+          element={isAdmin || isEvaluator ? <EvaluationScreen /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/profile/all-users/edit-user/:id"
           element={isAdmin ? <EditUser /> : <NotFound />}
         />
         <Route path="/*" element={<NotFound />} />

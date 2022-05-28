@@ -16,7 +16,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  min-height: 80vh;
+  min-height: 75vh;
   margin-bottom: 10vh;
 }
 
@@ -75,10 +75,35 @@
   width: 100%;
   overflow: auto;
 }
+.contribution-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  /* margin-bottom: 10px; */
+  padding: 10px;
+}
+.contribution-head-left {
+  display: flex;
+  align-items: center;
+}
+.contribution-head-left img {
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 10px;
+}
+.contribution-head-left img:hover {
+  background-color: rgb(228, 228, 228);
+}
 
-.p-contributions > h1 {
+/* #refresh {
+  margin-left: 20px;
+} */
+
+.contribution-head-left > h1 {
   font-family: "Outfit", sans-serif;
   font-size: 2rem;
+  display: inline-block;
 }
 
 .p-user-details {
@@ -115,6 +140,7 @@
   margin: 10px 0;
   border-radius: 8px;
   transition: all 0.2s ease;
+  width: 100%;
 }
 .p-btns {
   display: flex;
@@ -128,14 +154,21 @@
 
 /* table */
 .allusers {
+  table-layout: auto;
   border-collapse: collapse;
   width: 100%;
+  font-size: 14px;
 }
 .allusers td,
 .allusers th {
   border: 1px solid #ddd;
   padding: 8px;
-  min-width: 100px;
+  max-width: 500px;
+  overflow-wrap: break-word;
+}
+
+#status-head {
+  width: 80px;
 }
 .allusers tr:nth-child(even) {
   background: #f2f2f2;
@@ -150,7 +183,10 @@
 .allusers i {
   cursor: pointer;
 }
-
+.allusers a {
+  text-decoration: none;
+  color: black;
+}
 #actions {
   display: flex;
   align-items: center;
@@ -193,5 +229,59 @@
   margin-left: 5px;
 }
 
-.p-contributions {
+.is-evaluating {
+  border: 2px solid black;
+}
+
+.evaluating-question-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.evaluating-question-main > p {
+  font-size: 1vw;
+  margin-bottom: 20px;
+}
+.evaluation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.evaluator-actions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.e-btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.e-btns > a {
+  width: 40%;
+}
+.evaluator-actions button {
+  width: 40%;
+}
+.evaluator-actions button:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 2px 5px #777;
+}
+textarea {
+  font-size: 19px;
+  margin-top: 20px;
+  padding: 5px;
 }

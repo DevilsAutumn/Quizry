@@ -14,6 +14,7 @@ import {
   fetchAllUsers,
   dispatchGetAllUsers,
 } from "../../../redux/actions/usersActions";
+import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -142,6 +143,7 @@ const Profile = () => {
   const handleUpdate = () => {
     if (name || avatar) updateInfo();
     if (password) updatePassword();
+    window.location.reload();
   };
 
   const handleDelete = async (id) => {
@@ -250,25 +252,33 @@ const Profile = () => {
                 Update
               </button>
               {user.role > 0 && (
-                <button
-                  onClick={() => {
-                    setAllUsers(!allUsers);
-                    setUserBtn(false);
-                    setHideEvaluate(true);
-                  }}
+                <Link
+                  to={
+                    allUsers ? "/profile/evaluate" : "/profile/my-contributions"
+                  }
                 >
-                  {allUsers ? "Evaluate" : "My contributions"}
-                </button>
+                  <button
+                    onClick={() => {
+                      setAllUsers(!allUsers);
+                      setUserBtn(false);
+                      setHideEvaluate(true);
+                    }}
+                  >
+                    {allUsers ? "Evaluate" : "My contributions"}
+                  </button>
+                </Link>
               )}
               {isAdmin && (
-                <button
-                  onClick={() => {
-                    setUserBtn(true);
-                    setHideEvaluate(false);
-                  }}
-                >
-                  See Users
-                </button>
+                <Link to="/profile/all-users">
+                  <button
+                    onClick={() => {
+                      setUserBtn(true);
+                      setHideEvaluate(false);
+                    }}
+                  >
+                    See Users
+                  </button>
+                </Link>
               )}
             </div>
           </div>

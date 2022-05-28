@@ -1,9 +1,9 @@
 import React from "react";
-import AllQuestions from "./AllQuestions";
+import PendingQuestions from "./PendingQuestions";
 import Contributions from "./Contributions";
 
 const Evaluate = ({ allUsers }) => {
-  return <>{!allUsers ? <AllQuestions /> : <Contributions />}</>;
+  return <>{!allUsers ? <PendingQuestions /> : <Contributions />}</>;
 };
 
 export default Evaluate;

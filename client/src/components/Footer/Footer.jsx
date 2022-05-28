@@ -19,11 +19,11 @@ const Footer = () => {
               <p>Donate</p>
             </a>
             <a
-              href="mailto:bhuvnesh875@gmail.com"
+              href="mailto:quizryapp@gmail.com"
               target="_blank"
               rel="noreferrer"
             >
-              <p>Contact Us</p>
+              <p>Report bug</p>
             </a>
             <a
               href="mailto:bhuvnesh875@gmail.com"
