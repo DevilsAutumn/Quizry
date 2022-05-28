@@ -378,6 +378,8 @@ const userCtrl = {
     try {
       const UserQuestions = await Question.find({
         posted_by_id: req.user.id,
+      }).sort({
+        createdAt: -1,
       });
 
       return res.json(UserQuestions);
