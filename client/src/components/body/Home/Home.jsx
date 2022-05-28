@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 import MidHome from "./MidHome";
 import logoWhite from "../../../Media/logo-white.png";
-import logoYellow from "../../../Media/logo-yellow.png";
+import axios from "axios";
 
 const Home = () => {
+  const [stats, setStats] = useState([{}]);
+
+  const getQuestionStats = async () => {
+    const res = await axios.get("/user/stats");
+    setStats(res.data[0]);
+  };
+
+  useEffect(() => {
+    getQuestionStats();
+  }, []);
+
   return (
     <div>
       <div className="home-div">
@@ -29,8 +40,8 @@ const Home = () => {
       </div>
       <MidHome />
       <div className="counter-div">
-        <p>114 verified Questions</p>
-        <p>743 pending Questions</p>
+        <p>{stats && stats.AcceptedQuestions} Verified questions</p>
+        <p>{stats && stats.pendingQuestion} Pending questions</p>
       </div>
     </div>
   );

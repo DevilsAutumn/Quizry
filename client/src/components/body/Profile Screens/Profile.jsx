@@ -108,6 +108,7 @@ const Profile = () => {
         }
       );
       setData({ ...data, err: "", success: "Updated successfully!" });
+      window.location.reload();
     } catch (err) {
       err && setData({ ...data, err: err.response.data.msg, success: "" });
     }
@@ -135,6 +136,7 @@ const Profile = () => {
         }
       );
       setData({ ...data, err: "", success: "Updated successfully!" });
+      window.location.reload();
     } catch (err) {
       err && setData({ ...data, err: err.response.data.msg, success: "" });
     }
@@ -143,7 +145,6 @@ const Profile = () => {
   const handleUpdate = () => {
     if (name || avatar) updateInfo();
     if (password) updatePassword();
-    window.location.reload();
   };
 
   const handleDelete = async (id) => {

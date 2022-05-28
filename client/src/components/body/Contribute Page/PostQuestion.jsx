@@ -114,6 +114,7 @@ const PostQuestion = () => {
             <option value="Geography">Geography</option>
             <option value="Sports">Sports</option>
             <option value="Science">Science</option>
+            <option value="Entertainment">Entertainment</option>
           </select>
           <label htmlFor="difficulty">Difficulty:</label>
           <select
