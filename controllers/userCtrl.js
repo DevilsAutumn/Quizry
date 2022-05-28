@@ -349,7 +349,7 @@ const userCtrl = {
             id: posted_by_id,
           },
           {
-            $inc: { accepted: 1 },
+            $inc: { accepted: 1, pending: -1 },
           },
           {
             upsert: true,
@@ -361,24 +361,13 @@ const userCtrl = {
             id: posted_by_id,
           },
           {
-            $inc: { declined: 1 },
+            $inc: { declined: 1, pending: -1 },
           },
           {
             upsert: true,
           }
         );
       }
-      await Contributor.findOneAndUpdate(
-        {
-          id: req.user.id,
-        },
-        {
-          $inc: { pending: -1 },
-        },
-        {
-          upsert: true,
-        }
-      );
 
       res.status(200).json({ msg: "Question Evaluated successfully!" });
     } catch (err) {
