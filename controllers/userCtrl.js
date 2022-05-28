@@ -382,12 +382,14 @@ const userCtrl = {
 
       return res.json(UserQuestions);
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      return res.status(500).json({ msg: err.message }).sort({ createdAt: -1 });
     }
   },
   getAllPendingQuestions: async (req, res) => {
     try {
-      const data = await Question.find({ status: "Pending" });
+      const data = await Question.find({ status: "Pending" }).sort({
+        createdAt: -1,
+      });
 
       return res.json(data);
     } catch (err) {
@@ -404,7 +406,7 @@ const userCtrl = {
   },
   getAllQuestions: async (req, res) => {
     try {
-      const data = await Question.find();
+      const data = await Question.find().sort({ createdAt: -1 });
       return res.json(data);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
