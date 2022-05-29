@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import "./api.css";
 import CopyButton from "../../Utils/Copy Button/CopyButton";
+import { showErrMsg } from "../../Utils/Notification/Notification";
 
 const Api = () => {
-  const URL = process.env.PORT;
   const [amount, setAmount] = useState("10");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
+  const [err, setErr] = useState();
   const [showUrl, setshowUrl] = useState(false);
   const [url, setUrl] = useState(
     `https://quizry.herokuapp.com/api/amount=${amount}${category}${difficulty}${type}`
   );
 
   const onDataChange = () => {
+    if (amount > 30) {
+      return setErr("Maximum limit of amount is 30");
+    }
     setUrl(
       `https://quizry.herokuapp.com/api/amount=${amount}${
         (category || difficulty || type) && "?"
@@ -36,6 +40,7 @@ const Api = () => {
           use anywhere you want to get trivia questions!
         </p>
         <div className="question-form api-form">
+          {err && showErrMsg(err)}
           <label htmlFor="amount">Amount:</label>
           <input
             type="number"
@@ -43,8 +48,13 @@ const Api = () => {
             defaultValue="10"
             min="1"
             value={amount}
-            max="50"
+            max="30"
             onChange={(e) => {
+              if (e.target.value > 30) {
+                setErr("Maximum limit of amount is 30");
+              } else {
+                setErr();
+              }
               setAmount(e.target.value);
             }}
           />

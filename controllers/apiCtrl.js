@@ -9,10 +9,10 @@ const apiCtrl = {
     }
     try {
       const { amount } = req.params;
-      if (amount > 20) {
+      if (amount > 30) {
         return res
           .status(500)
-          .json({ msg: "Maximum amount of questions can be 20" });
+          .json({ msg: "Maximum amount of questions can be 30" });
       }
       const limit = Number(amount || 10);
 
