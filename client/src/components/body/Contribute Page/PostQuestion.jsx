@@ -100,7 +100,8 @@ const PostQuestion = () => {
       <div className="all-questions question-post">
         <h1>Post Question</h1>
         <p>
-          <b>Note:</b> Please search the question before posting it.
+          <b>Note:</b> Please search the question by keywords on the right side
+          before posting it.
         </p>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
@@ -109,7 +110,10 @@ const PostQuestion = () => {
           <input
             type="text"
             name="question"
-            onChange={(e) => onDataChange(e)}
+            onChange={(e) => {
+              onDataChange(e);
+              setSearchresults(e.target.value);
+            }}
             required
           />
           <label htmlFor="category">Category:</label>
@@ -124,18 +128,16 @@ const PostQuestion = () => {
               Select a category
             </option>
             <option value="General Knowledge">General Knowledge</option>
-            <option value="Politics">Politics</option>
             <option value="Technology">Technology</option>
             <option value="History">History</option>
             <option value="Celebrities">Celebrities</option>
-            <option value="Economy">Economy</option>
             <option value="Geography">Geography</option>
             <option value="Sports">Sports</option>
             <option value="Science">Science</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Food&Drink">Food&Drink</option>
             <option value="Animals">Animals</option>
-            <option value="Art and Literature">Animals</option>
+            <option value="Art and Literature">Art and Literature</option>
             <option value="Kids">Kids</option>
           </select>
           <label htmlFor="difficulty">Difficulty:</label>
@@ -263,7 +265,9 @@ const PostQuestion = () => {
             type="text"
             placeholder="Search a question.."
             id="searchbar"
-            onChange={(e) => setSearchresults(e.target.value)}
+            onChange={(e) => {
+              setSearchresults(e.target.value);
+            }}
           />
           <img
             src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"
@@ -284,8 +288,8 @@ const PostQuestion = () => {
             <thead>
               <tr>
                 <th>Question/Statement</th>
-                {/* <th id="status-head">Status</th>
-                <th>Contributor</th> */}
+                <th id="status-head">Status</th>
+                <th>Reason</th>
               </tr>
             </thead>
             <tbody>
@@ -299,7 +303,7 @@ const PostQuestion = () => {
                     <tr key={q._id}>
                       <td>{q.question}</td>
 
-                      {/* <td
+                      <td
                         style={
                           q.status === "Accepted"
                             ? {
@@ -316,7 +320,7 @@ const PostQuestion = () => {
                       >
                         {q.status}
                       </td>
-                      <td>{q.posted_by_name}</td> */}
+                      <td>{q.reason}</td>
                     </tr>
                   )
               )}

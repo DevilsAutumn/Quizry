@@ -100,9 +100,9 @@
   margin-left: 20px;
 } */
 
-.contribution-head-left > h1 {
+.contribution-head-left > h2 {
   font-family: "Outfit", sans-serif;
-  font-size: 2rem;
+  font-size: 1.2vw;
   display: inline-block;
 }
 

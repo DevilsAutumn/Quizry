@@ -56,10 +56,21 @@ const Contributions = () => {
             }}
           />
         </div>
-        <h3>Total: {QuesStats && QuesStats.totalcontribution}</h3>
-        <h3>Accepted: {QuesStats && QuesStats.accepted}</h3>
-        <h3>Declined: {QuesStats && QuesStats.declined}</h3>
-        <h3>Pending: {QuesStats && QuesStats.pending}</h3>
+        <h3>
+          Total:{" "}
+          {QuesStats && QuesStats.totalcontribution
+            ? QuesStats.totalcontribution
+            : 0}
+        </h3>
+        <h3>
+          Accepted: {QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}
+        </h3>
+        <h3>
+          Declined: {QuesStats && QuesStats.declined ? QuesStats.declined : 0}
+        </h3>
+        <h3>
+          Pending: {QuesStats && QuesStats.pending ? QuesStats.pending : 0}
+        </h3>
       </div>
       {err && showErrMsg(err)}
       <table className="allusers">
