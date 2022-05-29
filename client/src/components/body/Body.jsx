@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import EvaluationScreen from "./Profile Screens/EvaluationScreen";
 import Contribute from "./Contribute Page/Contribute";
 import PostQuestion from "./Contribute Page/PostQuestion";
+import Api from "./API/Api";
 
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -60,6 +61,7 @@ const Body = () => {
           element={<ActivationEmail />}
           exact
         />
+        <Route path="/api" element={<Api />} exact />
         <Route
           path="/profile"
           element={isLogged ? <Profile /> : <NotFound />}

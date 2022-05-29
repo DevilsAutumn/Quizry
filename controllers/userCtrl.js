@@ -170,22 +170,7 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  getAdminPanel: async (req, res) => {
-    try {
-      const users = await Users.find().select("-password");
-      res.json(users);
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
-  getEvaluatorPanel: async (req, res) => {
-    try {
-      const users = await Users.find().select("-password");
-      res.json(users);
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
+
   logout: async (req, res) => {
     try {
       res.clearCookie("refreshtoken", { path: "/user/refresh_token" });

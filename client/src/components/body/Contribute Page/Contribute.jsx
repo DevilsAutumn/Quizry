@@ -89,7 +89,10 @@ const Contribute = () => {
               {allQuestions.map(
                 (q) =>
                   q.question &&
-                  (!searchresults || q.question.includes(searchresults)) && (
+                  (!searchresults ||
+                    q.question
+                      .toLowerCase()
+                      .includes(searchresults.trim().toLowerCase())) && (
                     <tr key={q._id}>
                       <td>{q._id}</td>
                       <td>{q.question}</td>

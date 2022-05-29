@@ -1,11 +1,11 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useState } from "react";
 import {
   showErrMsg,
   showSuccessMsg,
 } from "../../Utils/Notification/Notification";
 import { useSelector } from "react-redux";
-
+import { RevolvingDot } from "react-loader-spinner";
 const initalDataState = {
   question: "",
   category: "",
@@ -18,10 +18,12 @@ const initalDataState = {
 const PostQuestion = () => {
   const [quesType, setQuesType] = useState("");
   const [optionsdd, setOptionsdd] = useState();
-
+  const [loading, setLoading] = useState(false);
+  const [allQuestions, setAllQuestions] = useState([{}]);
   const [data, setData] = useState(initalDataState);
   const [err, setErr] = useState("");
   const [success, setSuccess] = useState("");
+  const [searchresults, setSearchresults] = useState();
 
   const token = useSelector((state) => state.rootReducer.token);
   const setoptionsdd = (e) => {
@@ -69,6 +71,7 @@ const PostQuestion = () => {
         headers: { Authorization: token },
       });
       setErr();
+      getAllQuestions();
       setQuesType("");
       setTimeout(() => {
         setSuccess();
@@ -80,10 +83,25 @@ const PostQuestion = () => {
     }
   };
 
+  const getAllQuestions = async () => {
+    const res = await axios.get("/user/all_questions");
+    setAllQuestions(res.data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    try {
+      setLoading(true);
+      getAllQuestions();
+    } catch (err) {}
+  }, []);
+
   return (
     <div className="contribute-page">
       <div className="all-questions question-post">
         <h1>Post Question</h1>
+        <p>
+          <b>Note:</b> Please search the question before posting it.
+        </p>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <form className="question-form" id="myForm">
@@ -115,6 +133,10 @@ const PostQuestion = () => {
             <option value="Sports">Sports</option>
             <option value="Science">Science</option>
             <option value="Entertainment">Entertainment</option>
+            <option value="Food&Drink">Food&Drink</option>
+            <option value="Animals">Animals</option>
+            <option value="Art and Literature">Animals</option>
+            <option value="Kids">Kids</option>
           </select>
           <label htmlFor="difficulty">Difficulty:</label>
           <select
@@ -234,6 +256,73 @@ const PostQuestion = () => {
         <button className="question-post-btn" onClick={sendData}>
           Post
         </button>
+      </div>
+      <div className="search-ques">
+        <div className="searchbar p-user-details postq-searchbar">
+          <input
+            type="text"
+            placeholder="Search a question.."
+            id="searchbar"
+            onChange={(e) => setSearchresults(e.target.value)}
+          />
+          <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"
+            alt="search"
+          />
+        </div>
+        {loading ? (
+          <div className="loader">
+            <RevolvingDot
+              height="100"
+              width="100"
+              color="#c01616"
+              ariaLabel="loading"
+            />
+          </div>
+        ) : (
+          <table className="allusers contributor-list">
+            <thead>
+              <tr>
+                <th>Question/Statement</th>
+                {/* <th id="status-head">Status</th>
+                <th>Contributor</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {allQuestions.map(
+                (q) =>
+                  q.question &&
+                  (!searchresults ||
+                    q.question
+                      .toLowerCase()
+                      .includes(searchresults.trim().toLowerCase())) && (
+                    <tr key={q._id}>
+                      <td>{q.question}</td>
+
+                      {/* <td
+                        style={
+                          q.status === "Accepted"
+                            ? {
+                                backgroundColor: "rgb(9, 158, 54)",
+                                color: "white",
+                              }
+                            : q.status === "Declined"
+                            ? {
+                                backgroundColor: "rgb(214, 10, 10)",
+                                color: "white",
+                              }
+                            : { backgroundColor: "Yellow" }
+                        }
+                      >
+                        {q.status}
+                      </td>
+                      <td>{q.posted_by_name}</td> */}
+                    </tr>
+                  )
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
