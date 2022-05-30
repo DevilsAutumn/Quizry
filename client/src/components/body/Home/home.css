@@ -95,3 +95,42 @@
   padding: 10px;
   font-weight: 400;
 }
+
+.donate-page {
+  height: 89vh;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donate-div {
+  padding: 40px;
+  height: 60vh;
+  width: 30vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  /* justify-content: center; */
+}
+.donate-div img {
+  object-fit: contain;
+
+  width: 70%;
+  margin: auto;
+}
+
+#donate-btn {
+  background-color: var(--red);
+  color: white;
+  padding: 8px 10px;
+  width: 50%;
+  margin: auto;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+#donate-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 2px 5px #777;
+}

@@ -15,9 +15,9 @@ const Footer = () => {
             <a href="/">
               <p>Home</p>
             </a>
-            <a href="/donate">
+            {/* <a href="/donate">
               <p>Donate</p>
-            </a>
+            </a> */}
             <a
               href="mailto:quizryapp@gmail.com"
               target="_blank"

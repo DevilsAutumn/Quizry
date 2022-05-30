@@ -30,9 +30,9 @@ const Home = () => {
           <Link to="/api">
             <button>API</button>
           </Link>
-          <Link to="/donate">
+          {/* <Link to="/donate">
             <button>Donate</button>
-          </Link>
+          </Link> */}
           <Link to="/contribute">
             <button>Contribute</button>
           </Link>

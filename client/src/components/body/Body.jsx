@@ -15,6 +15,7 @@ import EvaluationScreen from "./Profile Screens/EvaluationScreen";
 import Contribute from "./Contribute Page/Contribute";
 import PostQuestion from "./Contribute Page/PostQuestion";
 import Api from "./API/Api";
+import Donate from "./Home/Donate";
 
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -31,6 +32,7 @@ const Body = () => {
           element={isLogged ? <NotFound /> : <Login />}
           exact
         />
+        <Route path="/donate" element={<Donate />} exact />
         <Route
           path="/register"
           element={isLogged ? <NotFound /> : <Register />}
