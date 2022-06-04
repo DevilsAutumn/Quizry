@@ -1,0 +1,8 @@
+.notfound > h1 {
+  font-size: 2vw;
+}
+@media (min-width: 300px) and (max-width: 820px) {
+  .notfound > h1 {
+    font-size: 5vw;
+  }
+}

@@ -5,8 +5,8 @@
   justify-content: center;
   flex-direction: row;
   background-color: var(--blue);
-  margin-top: -50px;
-  /* padding-top: 10vh; */
+  /* margin-top: 10vh; */
+  padding-top: 5%;
 }
 .head-content {
   margin-right: 25%;
