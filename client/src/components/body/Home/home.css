@@ -5,8 +5,7 @@
   justify-content: center;
   flex-direction: row;
   background-color: var(--blue);
-  /* margin-top: 10vh; */
-  padding-top: 5%;
+  margin-top: -50px;
 }
 .head-content {
   margin-right: 25%;
@@ -162,6 +161,7 @@
   .home-div {
     height: 100vh;
     flex-direction: column;
+    padding-top: 5%;
   }
   .home-band {
     display: none;
