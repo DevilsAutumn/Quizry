@@ -8,18 +8,20 @@ const NotFound = () => {
   const { isLogged } = auth;
 
   return (
-    <div
-      className="notfound"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-      }}
-    >
-      <img src={notFound} alt="" style={{ height: "70vh" }} />
-      {!isLogged && <h1>Please Login or Register first!</h1>}
-    </div>
+    <>
+      <div
+        className="notfound"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+        }}
+      >
+        <img src={notFound} alt="" style={{ height: "70vh", color: "white" }} />
+        {!isLogged && <h1>Please Login or Register first!</h1>}
+      </div>
+    </>
   );
 };
 

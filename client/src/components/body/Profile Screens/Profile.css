@@ -1,23 +1,27 @@
 .profile-div {
-  /* height: 100vh; */
+  min-height: 102vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: var(--red);
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: var(--blue);
+  padding: 0vw 5vw 0vw;
 }
 
 .p-card {
   background-color: white;
   /* height: 100%; */
-  margin-top: 100px;
-  width: 80vw;
+  margin-top: 5vh;
+  /* width: 80vw; */
   border-radius: 10px;
   position: relative;
   display: flex;
+  align-items: c;
+  justify-content: center;
   flex-direction: row;
   min-height: 75vh;
   margin-bottom: 10vh;
+  z-index: 1;
 }
 
 .p-avatar {
@@ -26,10 +30,10 @@
   width: 150px;
   border-radius: 50%;
   position: absolute;
-  top: -80px;
-  left: 7%;
   overflow: hidden;
   cursor: pointer;
+  margin-left: 90px;
+  margin-top: 10px;
 }
 
 .p-avatar img {
@@ -65,14 +69,25 @@
 }
 
 .p-info {
-  background-color: var(--green);
-  width: 450px;
+  background-color: white;
+  width: 350px;
   overflow: auto;
+  border-radius: 8px;
 }
 
+.profile-content {
+  background-color: white;
+  margin-top: 5vh;
+  height: 80vh;
+  width: 70%;
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 1;
+}
 .p-contributions {
   padding: 20px;
-  width: 100%;
+  width: 97%;
   overflow: auto;
 }
 .contribution-head {
@@ -107,7 +122,7 @@
 }
 
 .p-user-details {
-  margin-top: 100px;
+  margin-top: 180px;
   padding: 0px 35px;
 }
 .role {
@@ -132,7 +147,7 @@
   border-radius: 8px;
 }
 .p-user-details button {
-  background: var(--red);
+  background: var(--pink);
   color: white;
   padding: 10px 25px;
   text-transform: uppercase;
@@ -233,6 +248,10 @@
   border: 2px solid black;
 }
 
+.e-container {
+  width: 60vw;
+}
+
 .evaluating-question-main {
   display: flex;
   flex-direction: column;
@@ -284,4 +303,25 @@ textarea {
   font-size: 19px;
   margin-top: 20px;
   padding: 5px;
+}
+@media (min-width: 300px) and (max-width: 820px) {
+  .profile-div {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .p-card {
+    width: 95%;
+  }
+  .profile-content {
+    height: 80vh;
+    width: 95%;
+  }
+  .p-contributions {
+    height: 80vh;
+    overflow: auto;
+  }
+  .contribution-head > h3 {
+    font-size: 3vw;
+  }
 }

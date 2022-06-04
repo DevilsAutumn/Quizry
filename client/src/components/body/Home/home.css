@@ -1,50 +1,54 @@
-.heading-home h1 {
-  font-size: 10vw;
-  color: white;
-  font-family: "Outfit", sans-serif;
-  align-self: flex-end;
-}
 .home-div {
-  height: 93vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-color: var(--red);
-  padding-top: 10vh;
+  flex-direction: row;
+  background-color: var(--blue);
+  margin-top: -50px;
+  /* padding-top: 10vh; */
+}
+.head-content {
+  margin-right: 25%;
+  margin-top: -10vh;
 }
 .heading-home {
   display: flex;
   align-items: center;
 }
 .heading-home > img {
-  height: 20vw;
+  height: 19vw;
   margin-bottom: auto;
 }
 .home-div p {
-  font-size: 2vw;
+  font-size: 1.5vw;
   color: white;
   font-family: "Outfit", sans-serif;
 }
-
+.heading-home h1 {
+  font-size: 7vw;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  align-self: flex-end;
+}
 .home-btn {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 60%;
-  margin: auto;
-  margin-top: 8vh;
+  justify-content: space-between;
+  width: 70%;
+  /* margin: auto; */
+  margin-top: 3vh;
   flex-wrap: wrap;
 }
 .home-btn button {
   margin: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   min-width: 130px;
   padding: 10px 25px;
-  color: black;
+  color: white;
   border: none;
   border-radius: 7px;
-  background-color: var(--green);
+  background-color: var(--pink);
   transition: all 0.2s ease;
   font-weight: 500;
   font-family: "Outfit", sans-serif;
@@ -53,6 +57,21 @@
 .home-btn button:hover {
   transform: scale(1.1);
   box-shadow: 0px 2px 5px #777;
+}
+.home-band {
+  height: 110vh;
+  background-color: var(--pink);
+  width: 10%;
+  position: relative;
+  top: -49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-band > img {
+  position: absolute;
+  width: 40vw;
 }
 
 .mid-home {
@@ -87,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--red);
+  background-color: var(--pink);
 }
 .counter-div > p {
   color: white;
@@ -97,10 +116,10 @@
 }
 
 .donate-page {
-  height: 89vh;
-  background-color: var(--red);
+  height: 100vh;
+  background-color: var(--blue);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 .donate-div {
@@ -112,17 +131,18 @@
   flex-direction: column;
   text-align: center;
   border-radius: 8px;
+  z-index: 1;
+  margin-top: 10vh;
   /* justify-content: center; */
 }
 .donate-div img {
   object-fit: contain;
-
   width: 70%;
   margin: auto;
 }
 
 #donate-btn {
-  background-color: var(--red);
+  background-color: var(--pink);
   color: white;
   padding: 8px 10px;
   width: 50%;
@@ -133,4 +153,79 @@
 #donate-btn:hover {
   transform: scale(1.1);
   box-shadow: 0px 2px 5px #777;
+}
+
+#mobile-gif {
+  display: none;
+}
+@media (min-width: 300px) and (max-width: 820px) {
+  .home-div {
+    height: 100vh;
+    flex-direction: column;
+  }
+  .home-band {
+    display: none;
+  }
+  .head-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+  .home-btn {
+    width: 80%;
+  }
+  .home-btn button {
+    margin: 10px;
+    font-size: 0.7rem;
+    min-width: 110px;
+    padding: 8px 12.5px;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    background-color: var(--pink);
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-family: "Outfit", sans-serif;
+  }
+  #mobile-gif {
+    display: block;
+    width: 100vw;
+  }
+
+  .heading-home > img {
+    height: 35vw;
+  }
+  .home-div p {
+    font-size: 2.6vw;
+    color: white;
+    font-family: "Outfit", sans-serif;
+  }
+  .heading-home h1 {
+    font-size: 18vw;
+    color: white;
+    font-family: "Outfit", sans-serif;
+    align-self: flex-end;
+  }
+
+  .mid-home-content {
+    flex-direction: column;
+  }
+  .mid-home > h1 {
+    font-size: 10vw;
+    margin-bottom: 5vh;
+  }
+  .mid-home-text {
+    font-size: 3.8vw;
+    text-align: left;
+  }
+
+  .mid-home-image > img {
+    width: 85vw;
+    margin-bottom: 10vh;
+  }
+  .donate-div {
+    width: 70vw;
+  }
 }

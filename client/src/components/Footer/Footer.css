@@ -4,9 +4,10 @@
   /* align-items: center; */
   /* justify-content: space-between; */
   padding: 10px;
+  padding-top: 70px;
   overflow-x: hidden;
-  color: black;
-  background-color: var(--green);
+  color: white;
+  background-color: var(--blue);
   overflow-x: hidden;
   font-family: "Bai Jamjuree", sans-serif;
 }
@@ -23,7 +24,7 @@ hr {
 }
 
 .footer-links > a > p {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   padding: 5px;

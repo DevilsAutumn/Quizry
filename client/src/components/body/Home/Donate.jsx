@@ -12,7 +12,7 @@ const Donate = () => {
           of quizry and improvements in future.
         </p>
         <p>
-          <b>Thankyou so much in Advance</b>!
+          <b>Thankyou so much in Advance !</b>
         </p>
         <img
           src="https://c.tenor.com/35hmBwYHYikAAAAC/the-office-bow.gif"
@@ -22,6 +22,7 @@ const Donate = () => {
           <button id="donate-btn">Donate now</button>
         </a>
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

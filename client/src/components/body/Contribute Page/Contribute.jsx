@@ -156,6 +156,7 @@ const Contribute = () => {
           <h3>Pending Questions: {stats.pendingQuestion}</h3>
         </div>
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

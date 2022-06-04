@@ -57,7 +57,7 @@ const EvaluationScreen = () => {
   };
   return (
     <div className="profile-div">
-      <div className="p-card ">
+      <div className="e-container p-card ">
         {Loading ? (
           <div className="loader">
             <RevolvingDot
@@ -145,6 +145,7 @@ const EvaluationScreen = () => {
           </div>
         )}
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

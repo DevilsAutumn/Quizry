@@ -1,6 +1,6 @@
 {
   "name": "quizry",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bhuvnesh875@gmail.com",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

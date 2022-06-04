@@ -7,8 +7,7 @@
   flex-direction: column;
   color: white;
   font-family: "Outfit", sans-serif;
-
-  background-color: var(--red);
+  background-color: var(--blue);
 }
 p {
   margin: 10px;

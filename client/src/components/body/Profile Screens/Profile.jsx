@@ -169,20 +169,20 @@ const Profile = () => {
   return (
     <div className="profile-div">
       <div className="p-card">
-        <div className="p-avatar">
-          <img src={avatar ? avatar : user.avatar} alt="Avatar" />
-          <span>
-            <i className="fa fa-camera" aria-hidden="true"></i>
-            <p>Change</p>
-            <input
-              type="file"
-              name="file"
-              id="file_up"
-              onChange={changeAvatar}
-            />
-          </span>
-        </div>
         <div className="p-info">
+          <div className="p-avatar">
+            <img src={avatar ? avatar : user.avatar} alt="Avatar" />
+            <span>
+              <i className="fa fa-camera" aria-hidden="true"></i>
+              <p>Change</p>
+              <input
+                type="file"
+                name="file"
+                id="file_up"
+                onChange={changeAvatar}
+              />
+            </span>
+          </div>
           <div className="p-user-details">
             <div className="role">
               <h2>
@@ -284,12 +284,15 @@ const Profile = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="profile-content">
         {user.role === 0 && <Contributions />}
         {userBtn && !isEvaluator && (
           <AllUsers users={users} handleDelete={handleDelete} />
         )}
         {user.role > 0 && hideEvaluate && <Evaluate allUsers={allUsers} />}
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

@@ -3,11 +3,14 @@ import "./header.css";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import logo from "../../Media/logo.png";
+// import { Spin as Hamburger } from "hamburger-react";
+import { scaleDown as Menu } from "react-burger-menu";
 
-const Header = () => {
+const Header = (props) => {
   const auth = useSelector((state) => state.rootReducer.auth);
   const [dd, setDd] = useState(false);
+  // eslint-disable-next-line
+  const [isOpen, setIsOpen] = useState(false);
 
   const { user, isLogged } = auth;
 
@@ -24,16 +27,18 @@ const Header = () => {
   const userLink = () => {
     return (
       <li className="drop-nav">
-        <Link to="#" className="avatar">
+        <Link
+          to="#"
+          className="avatar"
+          onClick={() => {
+            setDd(!dd);
+          }}
+        >
           <img src={user.avatar} alt="" className="avatar-icon" />
-          <b>{user.name}</b>
-          <i
-            className="fa fa-angle-down"
-            aria-hidden="true"
-            onClick={() => {
-              setDd(!dd);
-            }}
-          ></i>
+          <text>
+            <b>{user.name}</b>
+          </text>
+          <i className="fa fa-angle-down" aria-hidden="true"></i>
         </Link>
         {dd && (
           <ul className="dropdown" id="dd">
@@ -49,36 +54,47 @@ const Header = () => {
     );
   };
 
+  const CloseNav = () => {
+    var element = document.getElementById("header");
+    element.classList.remove("nav-open");
+    setIsOpen(false);
+  };
+
   return (
-    <header>
-      <Link to="/">
-        <img src={logo} alt="logo" id="logo" />
-      </Link>
-      <ul>
-        <li>
-          <NavLink to="/" activeclassname="active">
+    <>
+      <div className="navbar">
+        <Menu {...props} className="menu">
+          {/* <header className={isOpen && "nav-open"} id="header"> */}
+
+          <NavLink to="/" activeclassname="active" onClick={CloseNav}>
             Home
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/api" activeclassname="active">
+          <NavLink to="/api" activeclassname="active" onClick={CloseNav}>
             API
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contribute" activeclassname="active">
+          <NavLink to="/contribute" activeclassname="active" onClick={CloseNav}>
             Contribute
           </NavLink>
-        </li>
+          <NavLink to="/donate" activeclassname="active" onClick={CloseNav}>
+            Donate
+          </NavLink>
+
+          {/* </header> */}
+        </Menu>
+        {/* <Hamburger
+          toggled={isOpen}
+          onToggle={() => setIsOpen(!isOpen)}
+          id="hamburger"
+        /> */}
         {isLogged ? (
           userLink()
         ) : (
-          <li>
-            <NavLink to="/login">Log In</NavLink>
-          </li>
+          <NavLink to="/login" id="login-register">
+            Log In/Register
+          </NavLink>
         )}
-      </ul>
-    </header>
+      </div>
+    </>
   );
 };
 

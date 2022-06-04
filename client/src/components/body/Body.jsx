@@ -26,7 +26,6 @@ const Body = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route
           path="/login"
           element={isLogged ? <NotFound /> : <Login />}

@@ -27,11 +27,13 @@ button {
 
 :root {
   --red: #c01616;
-
+  --blue: #102443;
+  --pink: #bc2376;
   --green: yellow;
 }
 .app {
   overflow-x: hidden;
+  background-color: var(--red);
 }
 /*  font */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&family=Poppins&display=swap");

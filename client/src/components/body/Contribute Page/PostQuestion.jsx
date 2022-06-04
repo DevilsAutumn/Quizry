@@ -328,6 +328,7 @@ const PostQuestion = () => {
           </table>
         )}
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

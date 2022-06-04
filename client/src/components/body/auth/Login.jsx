@@ -103,6 +103,7 @@ const Login = () => {
           <div className="social-login"></div> */}
         </div>
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };

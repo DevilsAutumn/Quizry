@@ -152,6 +152,7 @@ const Register = () => {
           </p>
         </div>
       </div>
+      <div className="pink-band"></div>
     </div>
   );
 };
