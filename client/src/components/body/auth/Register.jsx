@@ -63,7 +63,7 @@ const Register = () => {
         success: "",
       });
     try {
-      const res = await axios.post("/user/register", {
+      const res = await axios.post("user/register", {
         name,
         email,
         password,
