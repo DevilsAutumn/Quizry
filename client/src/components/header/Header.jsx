@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 // import { Spin as Hamburger } from "hamburger-react";
-import { scaleDown as Menu } from "react-burger-menu";
+import { scaleRotate as Menu } from "react-burger-menu";
 
 const Header = (props) => {
   const auth = useSelector((state) => state.rootReducer.auth);
