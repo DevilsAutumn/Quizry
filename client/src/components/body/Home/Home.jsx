@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import MidHome from "./MidHome";
 import logoWhite from "../../../Media/logo-white.png";
-import HomeGif from "../../../Media/home-gif.gif";
+import HomeGif from "../../../Media/home-gif-big.gif";
 import axios from "axios";
 
 const Home = () => {
