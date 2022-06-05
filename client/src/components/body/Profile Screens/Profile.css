@@ -20,8 +20,8 @@
   justify-content: center;
   flex-direction: row;
   min-height: 75vh;
-  margin-bottom: 10vh;
   z-index: 1;
+  margin-right: 5vw;
 }
 
 .p-avatar {
