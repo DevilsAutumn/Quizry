@@ -48,7 +48,7 @@ const Contribute = () => {
     <div className="contribute-page">
       <div className="all-questions">
         <div className="contribution-head p-user-details">
-          <h1>Contributor's list</h1>
+          <h1>All Questions</h1>
           <div className="searchbar">
             <input
               type="text"

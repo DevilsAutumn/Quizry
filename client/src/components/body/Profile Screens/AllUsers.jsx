@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const AllUsers = ({ users, handleDelete }) => {
   return (
     <div className="p-contributions">
-      <h1>Users</h1>
+      <div className="contribution-head">
+        <h1>Users</h1>
+        <h2>Total Users: {users.length}</h2>
+      </div>
       <table className="allusers">
         <thead>
           <tr>

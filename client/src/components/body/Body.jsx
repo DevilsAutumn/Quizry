@@ -37,11 +37,7 @@ const Body = () => {
           element={isLogged ? <NotFound /> : <Register />}
           exact
         />
-        <Route
-          path="/contribute/"
-          element={isLogged ? <Contribute /> : <NotFound />}
-          exact
-        />
+        <Route path="/contribute/" element={<Contribute />} exact />
         <Route
           path="/contribute/post-question"
           element={isLogged ? <PostQuestion /> : <NotFound />}

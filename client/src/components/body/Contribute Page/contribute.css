@@ -47,7 +47,7 @@
   padding-bottom: 6px;
   padding-left: 5px;
   text-align: left;
-  background: var(--pink);
+  background: #555;
   color: white;
 }
 .top-contributors-list td,
@@ -57,6 +57,7 @@
   max-width: 500px;
   overflow-wrap: break-word;
 }
+
 .contribution-head {
   margin-top: 0;
   min-width: 94%;
