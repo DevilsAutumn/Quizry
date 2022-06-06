@@ -151,9 +151,9 @@ const Contribute = () => {
         <div className="top-contributors">
           <h1>Stats</h1>
           <h3>Total Questions: {stats.TotalQuestions}</h3>
-          <h3>Accepted Questions: {stats.AcceptedQuestions}</h3>
-          <h3>Declined Questions: {stats.DeclinedQuestions}</h3>
-          <h3>Pending Questions: {stats.pendingQuestion}</h3>
+          <h3>Accepted : {stats.AcceptedQuestions}</h3>
+          <h3>Declined : {stats.DeclinedQuestions}</h3>
+          <h3>Pending : {stats.pendingQuestion}</h3>
         </div>
       </div>
       <div className="pink-band"></div>

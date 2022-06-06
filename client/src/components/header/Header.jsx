@@ -78,7 +78,9 @@ const Header = (props) => {
           <NavLink to="/donate" activeclassname="active" onClick={CloseNav}>
             Donate
           </NavLink>
-
+          <a href="mailto:quizryapp@gmail.com" target="_blank" rel="noreferrer">
+            Contact Us
+          </a>
           {/* </header> */}
         </Menu>
         {/* <Hamburger
