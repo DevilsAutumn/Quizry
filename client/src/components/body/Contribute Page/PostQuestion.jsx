@@ -35,6 +35,7 @@ const PostQuestion = () => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
+
   const sendData = async () => {
     try {
       const { category, correct_option, difficulty, question, type, options } =
@@ -77,6 +78,7 @@ const PostQuestion = () => {
         setSuccess();
       }, 2000);
       setSuccess(res.data.msg);
+      setSearchresults();
       document.getElementById("myForm").reset();
     } catch (err) {
       err.response.data.msg && setErr(err.response.data.msg);
