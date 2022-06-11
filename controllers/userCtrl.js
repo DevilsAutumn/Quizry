@@ -161,6 +161,14 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getUserData: async (req, res) => {
+    try {
+      const user = await Users.findById(req.params.id).select("-password");
+      res.json(user);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   getAllUsersInfo: async (req, res) => {
     try {
       const users = await Users.find().select("-password");
@@ -362,16 +370,17 @@ const userCtrl = {
   getUserQuestions: async (req, res) => {
     try {
       const UserQuestions = await Question.find({
-        posted_by_id: req.user.id,
+        posted_by_id: req.params.id,
       }).sort({
         createdAt: -1,
       });
 
       return res.json(UserQuestions);
     } catch (err) {
-      return res.status(500).json({ msg: err.message }).sort({ createdAt: -1 });
+      return res.status(500).json({ msg: err.message });
     }
   },
+
   getAllPendingQuestions: async (req, res) => {
     try {
       const data = await Question.find({ status: "Pending" }).sort({
@@ -402,7 +411,7 @@ const userCtrl = {
   getQuestionStats: async (req, res) => {
     try {
       const data = await Contributor.find({
-        id: req.user.id,
+        id: req.params.id,
       });
       return res.json(data);
     } catch (err) {
@@ -429,7 +438,7 @@ const userCtrl = {
   },
   getTopContributors: async (req, res) => {
     try {
-      const data = await Contributor.find().sort({ accepted: -1 });
+      const data = await Contributor.find().sort({ accepted: -1 }).limit(5);
 
       return res.json(data);
     } catch (err) {

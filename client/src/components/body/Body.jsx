@@ -16,6 +16,7 @@ import Contribute from "./Contribute Page/Contribute";
 import PostQuestion from "./Contribute Page/PostQuestion";
 import Api from "./API/Api";
 import Donate from "./Home/Donate";
+import UserProfile from "./User Profile/UserProfile";
 
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -64,6 +65,7 @@ const Body = () => {
           element={isLogged ? <Profile /> : <NotFound />}
           exact
         />
+        <Route path="/user/:id" element={<UserProfile />} exact />
         <Route
           path="/profile/evaluate"
           element={isEvaluator || isAdmin ? <Profile /> : <NotFound />}

@@ -18,6 +18,8 @@ router.post("/reset", auth, userCtrl.resetPassword);
 
 router.get("/info", auth, userCtrl.getUserInfo);
 
+router.get("/user_info/:id", userCtrl.getUserData);
+
 router.get("/all_users_info", auth, userCtrl.getAllUsersInfo);
 
 router.get("/logout", userCtrl.logout);
@@ -37,7 +39,7 @@ router.post(
   userCtrl.approveQuestion
 );
 
-router.get("/my_questions/user=:id", auth, userCtrl.getUserQuestions);
+router.get("/user_questions/:id", userCtrl.getUserQuestions);
 
 router.get(
   "/pending_questions",
@@ -55,7 +57,7 @@ router.get(
 
 router.get("/all_questions", userCtrl.getAllQuestions);
 
-router.get("/questionStats", auth, userCtrl.getQuestionStats);
+router.get("/questionStats/:id", userCtrl.getQuestionStats);
 
 router.get("/stats", userCtrl.getStats);
 

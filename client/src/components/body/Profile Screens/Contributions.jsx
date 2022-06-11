@@ -9,20 +9,16 @@ const Contributions = () => {
 
   const [QuesStats, setQuesStats] = useState();
   const [err, setErr] = useState("");
-  const token = useSelector((state) => state.rootReducer.token);
+
   const auth = useSelector((state) => state.rootReducer.auth);
 
   async function fetchUserQuestions() {
-    const res = await axios.get(`/user/my_questions/user=${auth.user._id}`, {
-      headers: { Authorization: token },
-    });
+    const res = await axios.get(`/user/user_questions/${auth.user._id}`);
     setMyContributions(res.data);
   }
 
   async function getQuestionStats() {
-    const res = await axios.get(`/user/questionStats`, {
-      headers: { Authorization: token },
-    });
+    const res = await axios.get(`/user/questionStats/${auth.user._id}`);
     setQuesStats(res.data[0]);
   }
   useEffect(() => {

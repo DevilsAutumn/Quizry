@@ -17,7 +17,7 @@ const Contribute = () => {
   };
   const getTopContributors = async () => {
     const res = await axios.get("/user/top_contributors");
-    setTopContributors(res.data);
+    setTopContributors(res.data.slice());
   };
   const getQuestionStats = async () => {
     const res = await axios.get("/user/stats");
@@ -114,7 +114,11 @@ const Contribute = () => {
                       >
                         {q.status}
                       </td>
-                      <td>{q.posted_by_name}</td>
+                      <td>
+                        <Link to={`/user/${q.posted_by_id}`}>
+                          <u>{q.posted_by_name}</u>
+                        </Link>
+                      </td>
                     </tr>
                   )
               )}

@@ -107,6 +107,7 @@
   justify-content: space-around;
   background-color: var(--pink);
 }
+
 .counter-div > p {
   color: white;
   font-size: 2vw;
@@ -227,5 +228,8 @@
   }
   .donate-div {
     width: 70vw;
+  }
+  .counter-div {
+    background-color: var(--blue);
   }
 }
