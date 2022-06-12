@@ -1,0 +1,61 @@
+.help {
+  width: 130px;
+  height: 130px;
+  border: 17px var(--blue) solid;
+  border-radius: 50%;
+  -webkit-animation: rotation 2s ease-in-out infinite;
+  -moz-animation: rotation 2s ease-in-out infinite;
+  animation: rotation 2s ease-in-out infinite;
+  margin: 30px auto;
+}
+
+.help:after {
+  width: 28px;
+  height: 28px;
+  background-color: var(--blue);
+  border-radius: 100%;
+  position: absolute;
+  content: "";
+  margin: 23px;
+  top: 100px;
+  left: 100px;
+}
+
+.help::before {
+  width: 28px;
+  height: 28px;
+  background-color: var(--blue);
+  border-radius: 100%;
+  position: absolute;
+  content: "";
+  margin: -13px;
+  top: 97px;
+  left: 97px;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotation {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

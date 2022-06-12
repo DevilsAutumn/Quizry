@@ -12,7 +12,7 @@
 }
 
 #profile-username {
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .user-profile-pic {
@@ -55,5 +55,8 @@
     height: 150px;
     width: 150px;
     top: 70px;
+  }
+  #profile-username {
+    margin-top: 50px;
   }
 }

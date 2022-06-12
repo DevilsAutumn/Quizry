@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./userprofile.css";
 import { showErrMsg } from "../../Utils/Notification/Notification";
-import { RevolvingDot } from "react-loader-spinner";
+import Loader from "../../Loader/Loader";
 
 const UserProfile = () => {
   const { id } = useParams();
@@ -26,7 +26,6 @@ const UserProfile = () => {
   async function getUserData() {
     const res = await axios.get(`/user/user_info/${id}`);
     setUser(res.data);
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -35,6 +34,9 @@ const UserProfile = () => {
       fetchUserQuestions();
       getQuestionStats();
       getUserData();
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     } catch (err) {
       err.response.data.msg && setErr(err.response.data.msg);
       setLoading(false);
@@ -48,12 +50,7 @@ const UserProfile = () => {
       <div className="user-profile-card">
         {loading ? (
           <div className="loader">
-            <RevolvingDot
-              height="100"
-              width="100"
-              color="#c01616"
-              ariaLabel="loading"
-            />
+            <Loader />
           </div>
         ) : (
           user && (

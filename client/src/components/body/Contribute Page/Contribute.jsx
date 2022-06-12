@@ -3,6 +3,7 @@ import "./contribute.css";
 import axios from "axios";
 import { RevolvingDot } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import Loader from "../../Loader/Loader";
 
 const Contribute = () => {
   const [loading, setLoading] = useState(false);
@@ -17,12 +18,11 @@ const Contribute = () => {
   };
   const getTopContributors = async () => {
     const res = await axios.get("/user/top_contributors");
-    setTopContributors(res.data.slice());
+    setTopContributors(res.data);
   };
   const getQuestionStats = async () => {
     const res = await axios.get("/user/stats");
     setStats(res.data[0]);
-    setLoading(false);
   };
 
   const setsearchdata = () => {
@@ -37,6 +37,9 @@ const Contribute = () => {
       getAllQuestions();
       getQuestionStats();
       getTopContributors();
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     } catch (err) {}
   }, []);
 
@@ -67,12 +70,7 @@ const Contribute = () => {
         </div>
         {loading ? (
           <div className="loader">
-            <RevolvingDot
-              height="100"
-              width="100"
-              color="#c01616"
-              ariaLabel="loading"
-            />
+            <Loader />
           </div>
         ) : (
           <table className="allusers contributor-list">
