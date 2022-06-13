@@ -30,6 +30,10 @@ hr {
   padding: 5px;
 }
 
+.footer-links > a > p:hover {
+  color: var(--pink);
+}
+
 .footer-links {
   padding: 15px;
 }
@@ -78,5 +82,8 @@ footer > p {
   }
   .footer-logo > img {
     height: 5rem;
+  }
+  .footer-links > a > p:hover {
+    color: var(--blue);
   }
 }

@@ -32,7 +32,7 @@ const Body = () => {
           element={isLogged ? <NotFound /> : <Login />}
           exact
         />
-        <Route path="/donate" element={<Donate />} exact />
+        {/* <Route path="/donate" element={<Donate />} exact /> */}
         <Route
           path="/register"
           element={isLogged ? <NotFound /> : <Register />}
