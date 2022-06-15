@@ -64,20 +64,17 @@ const PostQuestion = () => {
       if (type === "True/False" && options.length < 2)
         return setErr("Please fill all options.");
 
-      if (!category || !correct_option || !difficulty || !question || !type)
-        return setErr("Please fill in all fields.");
-
       setData({ options: [] });
       const res = await axios.post("/user/add_question", data, {
         headers: { Authorization: token },
       });
+      setSuccess(res.data.msg);
       setErr();
       getAllQuestions();
       setQuesType("");
       setTimeout(() => {
         setSuccess();
       }, 2000);
-      setSuccess(res.data.msg);
       setSearchresults();
       document.getElementById("myForm").reset();
     } catch (err) {
@@ -140,6 +137,7 @@ const PostQuestion = () => {
             <option value="Food&Drink">Food&Drink</option>
             <option value="Animals">Animals</option>
             <option value="Art and Literature">Art and Literature</option>
+            <option value="Art and Literature">Anime and Manga</option>
             <option value="Kids">Kids</option>
           </select>
           <label htmlFor="difficulty">Difficulty:</label>
