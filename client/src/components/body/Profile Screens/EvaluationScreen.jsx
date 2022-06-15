@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { RevolvingDot } from "react-loader-spinner";
@@ -68,10 +68,9 @@ const EvaluationScreen = () => {
             />
           </div>
         ) : (
-          <div className="p-contributions evaluation-card">
+          <div className="p-contributions ">
             <div className="evaluation-heading">
               <h3>Question ID: {id} </h3>
-              <h3>Author's ID: {pendingQuestion.posted_by_id} </h3>
               <h3>Author's name: {pendingQuestion.posted_by_name} </h3>
             </div>
             <div className="evaluating-question-main">

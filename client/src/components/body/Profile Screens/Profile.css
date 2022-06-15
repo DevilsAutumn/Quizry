@@ -250,13 +250,13 @@
 
 .e-container {
   width: 60vw;
+  height: 86vh;
 }
 
 .evaluating-question-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
 }
 .evaluating-question-main > p {
   font-size: 1vw;
@@ -287,7 +287,7 @@
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 50%;
 }
 .e-btns > a {
   width: 40%;
@@ -300,7 +300,7 @@
   box-shadow: 0px 2px 5px #777;
 }
 textarea {
-  font-size: 19px;
+  font-size: 17px;
   margin-top: 20px;
   padding: 5px;
 }
