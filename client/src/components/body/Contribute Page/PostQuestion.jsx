@@ -64,7 +64,7 @@ const PostQuestion = () => {
       if (type === "True/False" && options.length < 2)
         return setErr("Please fill all options.");
 
-      setData({ options: [] });
+      setData(initalDataState);
       const res = await axios.post("/user/add_question", data, {
         headers: { Authorization: token },
       });
@@ -131,13 +131,15 @@ const PostQuestion = () => {
             <option value="History">History</option>
             <option value="Celebrities">Celebrities</option>
             <option value="Geography">Geography</option>
-            <option value="Sports">Sports</option>
+            <option value="Games and Sports">Games and Sports</option>
             <option value="Science">Science</option>
-            <option value="Entertainment">Entertainment</option>
+            <option value="Music and Entertainment">
+              Music and Entertainment
+            </option>
             <option value="Food&Drink">Food&Drink</option>
             <option value="Animals">Animals</option>
             <option value="Art and Literature">Art and Literature</option>
-            <option value="Art and Literature">Anime and Manga</option>
+            <option value="Anime and Manga">Anime and Manga</option>
             <option value="Kids">Kids</option>
           </select>
           <label htmlFor="difficulty">Difficulty:</label>
