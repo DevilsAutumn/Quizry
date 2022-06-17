@@ -98,7 +98,7 @@ const UserProfile = () => {
                   </div>
                 </div>
               </div>
-              <h2>{user.name}'s Contributions</h2>
+              {/* <h2>{user.name}'s Contributions</h2> */}
               <div className="user-profile-questions">
                 <br />
                 <table className=" allusers ">

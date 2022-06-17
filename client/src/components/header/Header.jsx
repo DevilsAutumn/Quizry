@@ -24,6 +24,16 @@ const Header = (props) => {
     }
   };
 
+  document.body.addEventListener(
+    "click",
+    function () {
+      if (dd) {
+        setDd(false);
+      }
+    },
+    true
+  );
+
   const userLink = () => {
     return (
       <li className="drop-nav">
@@ -42,9 +52,7 @@ const Header = (props) => {
         </Link>
         {dd && (
           <ul className="dropdown" id="dd">
-            <Link to="/profile" onClick={() => setDd(false)}>
-              Pofile
-            </Link>
+            <Link to="/profile">Pofile</Link>
             <Link to="/" onClick={handleLogout}>
               Logout
             </Link>

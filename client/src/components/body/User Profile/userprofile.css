@@ -14,23 +14,21 @@
 .upper-user-profile {
   display: flex;
   width: 100%;
-  align-items: center;
-  border-bottom: 2px solid var(--blue);
+  /* align-items: center; */
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: var(--pink);
   border-radius: 8px;
   color: white;
   padding: 10px;
-  margin-bottom: 20px;
-}
-
-#profile-username {
-  /* margin-top: 70px; */
+  /* margin-bottom: 20px; */
 }
 
 .user-profile-pic {
   /* position: absolute; */
   height: 200px;
   width: 200px;
+  padding: 15px;
+  /* padding: 0px 15px 0px 0px; */
   /* border-radius: 50%; */
   /* overflow: hidden; */
   /* top: 30px; */
@@ -39,11 +37,12 @@
 .user-profile-pic > img {
   height: 100%;
   width: 100%;
+  border-radius: 8px;
   /* object-fit: cover;
   overflow: hidden; */
 }
 .user-profile-stats {
-  padding: 10px;
+  /* padding: 10px; */
   /* margin-top: 5%; */
   display: flex;
   flex-direction: column;
@@ -59,9 +58,6 @@
   margin-top: 10px;
 }
 
-.questions-stats > p {
-}
-
 .user-profile-questions {
   margin-top: 10px;
   width: 100%;
@@ -72,6 +68,7 @@
   .upper-user-profile {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
   .user-profile-card {
     width: 80vw;
