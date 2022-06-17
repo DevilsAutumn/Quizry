@@ -55,38 +55,52 @@ const UserProfile = () => {
         ) : (
           user && (
             <>
-              <div className="user-profile-pic">
-                <img src={user.avatar} alt="" />
+              <div className="upper-user-profile">
+                <div className="user-profile-pic">
+                  <img src={user.avatar} alt="" />
+                </div>
+                <div className="user-profile-stats">
+                  <h1 id="profile-username">
+                    Username: <p>{user.name}</p>
+                  </h1>
+                  <h2>
+                    Role:
+                    <p>
+                      {user.role === 2
+                        ? " Admin👑"
+                        : user.role === 1
+                        ? " Evaluator📝"
+                        : " User"}
+                    </p>
+                  </h2>
+                  <div className="questions-stats">
+                    <p>
+                      Questions posted :{" "}
+                      {QuesStats && QuesStats.totalcontribution
+                        ? QuesStats.totalcontribution
+                        : 0}
+                    </p>
+                    <br />
+                    <p>
+                      Accepted :{" "}
+                      {QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}
+                    </p>
+                    <br />
+                    <p>
+                      Declined :{" "}
+                      {QuesStats && QuesStats.declined ? QuesStats.declined : 0}
+                    </p>
+                    <br />
+                    <p>
+                      Pending :{" "}
+                      {QuesStats && QuesStats.pending ? QuesStats.pending : 0}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h1 id="profile-username">{user.name}</h1>
-              <h2>
-                {user.role === 2
-                  ? "Admin👑"
-                  : user.role === 1
-                  ? "Evaluator📝"
-                  : "User"}
-              </h2>
-              <div className="user-profile-stats">
-                <h2>
-                  Questions posted :{" "}
-                  {QuesStats && QuesStats.totalcontribution
-                    ? QuesStats.totalcontribution
-                    : 0}
-                </h2>
-                <h2>
-                  Accepted :{" "}
-                  {QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}
-                </h2>
-                <h2>
-                  Declined :{" "}
-                  {QuesStats && QuesStats.declined ? QuesStats.declined : 0}
-                </h2>
-                <h2>
-                  Pending :{" "}
-                  {QuesStats && QuesStats.pending ? QuesStats.pending : 0}
-                </h2>
-              </div>
+              <h2>{user.name}'s Contributions</h2>
               <div className="user-profile-questions">
+                <br />
                 <table className=" allusers ">
                   <thead>
                     <tr>
