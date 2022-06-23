@@ -32,7 +32,7 @@ const AllUsers = ({ users, handleDelete }) => {
                   : "Admin"}
               </td>
               <td id="actions">
-                <Link to={`/profile/all-users/edit-user/${user._id}`}>
+                <Link to={`/dashboard/all-users/edit-user/${user._id}`}>
                   <i
                     className="fa fa-pencil-square-o action-icon"
                     aria-hidden="true"

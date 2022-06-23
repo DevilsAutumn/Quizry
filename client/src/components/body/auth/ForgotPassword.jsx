@@ -47,14 +47,16 @@ const ForgotPassword = () => {
           <form>
             <div>
               <label htmlFor="email">Email Address</label>
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                id="email"
-                value={email}
-                name="email"
-                onChange={handleChangeInput}
-              />
+              <div className="input-div">
+                <input
+                  type="text"
+                  placeholder="Enter your email address"
+                  id="email"
+                  value={email}
+                  name="email"
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
           </form>
           <div className="row">

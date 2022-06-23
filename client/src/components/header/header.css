@@ -83,7 +83,7 @@ header {
 .dropdown > a {
   text-transform: capitalize;
   overflow: hidden;
-  margin: 10px 0px;
+  margin: 15px 0px;
   cursor: pointer;
   color: white;
 }
@@ -95,6 +95,7 @@ header {
 .fa {
   margin-left: 5px;
 }
+
 .dropdown {
   position: absolute;
   background: var(--pink);
@@ -106,6 +107,11 @@ header {
   left: 6px;
   border-radius: 0px 0px 6px 6px;
   z-index: 2;
+  transition: all 0.4s ease;
+}
+
+#down-arrow {
+  transform: rotateX(180deg);
 }
 
 @media (min-width: 300px) and (max-width: 820px) {
@@ -164,7 +170,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-menu {
   background: var(--pink);
   padding: 2em 1em 0;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 /* Morph shape necessary with bubble or elastic */

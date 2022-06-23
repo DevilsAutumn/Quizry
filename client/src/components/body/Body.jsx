@@ -7,16 +7,17 @@ import NotFound from "../Utils/NotFound/NotFound";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import Home from "./Home/Home";
-import Profile from "./Profile Screens/Profile";
-import EditUser from "./Profile Screens/EditUser";
+import Dashboard from "./Dashboard Screens/Dashboard";
+import EditUser from "./Dashboard Screens/EditUser";
 import "./body.css";
 import { useSelector } from "react-redux";
-import EvaluationScreen from "./Profile Screens/EvaluationScreen";
+import EvaluationScreen from "./Dashboard Screens/EvaluationScreen";
 import Contribute from "./Contribute Page/Contribute";
 import PostQuestion from "./Contribute Page/PostQuestion";
 import Api from "./API/Api";
-import Donate from "./Home/Donate";
+
 import UserProfile from "./User Profile/UserProfile";
+import MyProfile from "../My profile screens/MyProfile";
 
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -61,33 +62,38 @@ const Body = () => {
         />
         <Route path="/api" element={<Api />} exact />
         <Route
-          path="/profile"
-          element={isLogged ? <Profile /> : <NotFound />}
+          path="/dashboard/*"
+          element={isLogged ? <Dashboard /> : <NotFound />}
+          exact
+        />
+        <Route
+          path="/my-profile"
+          element={isLogged ? <MyProfile /> : <NotFound />}
           exact
         />
         <Route path="/user/:id" element={<UserProfile />} exact />
-        <Route
-          path="/profile/evaluate"
-          element={isEvaluator || isAdmin ? <Profile /> : <NotFound />}
+        {/* <Route
+          path="/dashboard/evaluate/*"
+          element={isEvaluator || isAdmin ? <Dashboard /> : <NotFound />}
           exact
         />
         <Route
-          path="/profile/my-contributions"
-          element={isLogged ? <Profile /> : <NotFound />}
+          path="/dashboard/my-contributions/*"
+          element={isLogged ? <Dashboard /> : <NotFound />}
           exact
         />
         <Route
-          path="/profile/all-users"
-          element={isAdmin ? <Profile /> : <NotFound />}
+          path="/dashboard/all-user/*"
+          element={isAdmin ? <Dashboard /> : <NotFound />}
           exact
-        />
+        /> */}
         <Route
-          path="/profile/evaluate/question=:id"
+          path="/dashboard/evaluate/question=:id"
           element={isAdmin || isEvaluator ? <EvaluationScreen /> : <NotFound />}
           exact
         />
         <Route
-          path="/profile/all-users/edit-user/:id"
+          path="/dashboard/all-users/edit-user/:id"
           element={isAdmin ? <EditUser /> : <NotFound />}
         />
         <Route path="/*" element={<NotFound />} />

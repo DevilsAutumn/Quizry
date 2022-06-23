@@ -18,6 +18,8 @@ const initalState = {
 
 const ResetPassword = () => {
   const [data, setData] = useState(initalState);
+  const [pvisible, setPvisible] = useState(false);
+  const [cpvisible, setCpvisible] = useState(false);
   const navigate = useNavigate();
   const { token } = useParams();
 
@@ -72,25 +74,59 @@ const ResetPassword = () => {
           <form>
             <div>
               <label htmlFor="password">Enter new password</label>
-              <input
-                type="password"
-                placeholder="Enter new password"
-                id="password"
-                value={password}
-                name="password"
-                onChange={handleChangeInput}
-              />
+              <div className="input-div">
+                <input
+                  type={pvisible ? "text" : "password"}
+                  placeholder="Enter new password"
+                  id="password"
+                  value={password}
+                  name="password"
+                  onChange={handleChangeInput}
+                />
+                {pvisible ? (
+                  <img
+                    src="https://img.icons8.com/cotton/20/undefined/surprise--v2.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setPvisible(!pvisible)}
+                  />
+                ) : (
+                  <img
+                    src="https://img.icons8.com/windows/20/undefined/closed-eye.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setPvisible(!pvisible)}
+                  />
+                )}
+              </div>
             </div>
             <div>
               <label htmlFor="cf_password">Re-enter password</label>
-              <input
-                type="password"
-                placeholder="Re-enter new password"
-                id="cf_password"
-                value={cf_password}
-                name="cf_password"
-                onChange={handleChangeInput}
-              />
+              <div className="input-div">
+                <input
+                  type={cpvisible ? "text" : "password"}
+                  placeholder="Re-enter new password"
+                  id="cf_password"
+                  value={cf_password}
+                  name="cf_password"
+                  onChange={handleChangeInput}
+                />
+                {cpvisible ? (
+                  <img
+                    src="https://img.icons8.com/cotton/20/undefined/surprise--v2.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setCpvisible(!cpvisible)}
+                  />
+                ) : (
+                  <img
+                    src="https://img.icons8.com/windows/20/undefined/closed-eye.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setCpvisible(!cpvisible)}
+                  />
+                )}
+              </div>
             </div>
           </form>
           <div className="row">

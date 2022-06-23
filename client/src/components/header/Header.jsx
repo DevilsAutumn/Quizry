@@ -26,8 +26,9 @@ const Header = (props) => {
 
   document.body.addEventListener(
     "click",
-    function () {
-      if (dd) {
+    function (e) {
+      let container = document.getElementById("drop-nav");
+      if (!container.contains(e.target)) {
         setDd(false);
       }
     },
@@ -36,7 +37,7 @@ const Header = (props) => {
 
   const userLink = () => {
     return (
-      <li className="drop-nav">
+      <li className="drop-nav" id="drop-nav">
         <Link
           to="#"
           className="avatar"
@@ -48,11 +49,20 @@ const Header = (props) => {
           <text>
             <b>{user.name}</b>
           </text>
-          <i className="fa fa-angle-down" aria-hidden="true"></i>
+          <i
+            className="fa fa-angle-down"
+            id={dd && "down-arrow"}
+            aria-hidden="true"
+          ></i>
         </Link>
         {dd && (
           <ul className="dropdown" id="dd">
-            <Link to="/profile">Pofile</Link>
+            <Link to="/my-profile" onClick={() => setDd(false)}>
+              My Profile
+            </Link>
+            <Link to="/dashboard" onClick={() => setDd(false)}>
+              Dashboard
+            </Link>
             <Link to="/" onClick={handleLogout}>
               Logout
             </Link>

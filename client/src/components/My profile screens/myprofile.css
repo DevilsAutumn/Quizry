@@ -1,0 +1,262 @@
+.my-profile {
+  background-color: white;
+  border-radius: 150px 8px 8px 8px;
+  min-height: 130vh;
+  min-width: 50vw;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.profile-bottom-band {
+  bottom: -43vh;
+}
+
+.profile-banner {
+  height: 180px;
+  background: linear-gradient(90.02deg, #bc2376 0.01%, #753a88 74.98%);
+  border-radius: 150px 8px 0px 0px;
+}
+
+.my-profile-main {
+  /* border: 2px solid black; */
+  height: 75%;
+}
+
+#message {
+  width: 45%;
+  margin: auto;
+  position: relative;
+  top: -70px;
+}
+
+.my-profile-picture {
+  width: 133px;
+  height: 132px;
+  border-radius: 50%;
+  position: relative;
+  top: -60px;
+  left: 15%;
+  background: #d9d9d9;
+  border: 5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.my-profile-picture > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.my-profile-picture > span {
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #fff8;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: black;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#p-pic-delete {
+  position: absolute;
+  border-radius: 50%;
+  padding: 3px;
+  left: 40%;
+  top: -25%;
+  transition: 0.3s ease-in-out;
+  /* border: 2px solid red; */
+}
+
+#p-pic-delete > img {
+  background-color: white;
+  border-radius: 50%;
+}
+
+#p-pic-delete > img:hover {
+  transform: scale(1.1);
+}
+
+.my-profile-picture:hover #p-pic-delete {
+  top: 20%;
+}
+
+#file_up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.my-profile-picture:hover span {
+  bottom: -5%;
+}
+
+.my-profile-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid black; */
+  /* padding: 20px; */
+  width: 90%;
+  margin: auto;
+  position: relative;
+  top: -50px;
+}
+
+.my-profile-detail-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.my-profile-detail-div input {
+  width: 58%;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #949494;
+  border-radius: 5px;
+  height: 31px;
+  padding: 0px 5px;
+}
+
+.profile-input-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #949494;
+  border-radius: 5px;
+}
+.profile-input-div > input {
+  border: none;
+  width: 90%;
+}
+
+.social-input-div > input {
+  width: 97%;
+}
+
+.my-bio {
+  align-items: flex-start;
+  width: 60%;
+}
+
+.my-bio > textarea {
+  width: 99%;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #949494;
+  border-radius: 5px;
+  font-size: 14px;
+  display: block;
+  margin-top: 0;
+  font-weight: 100;
+}
+
+#c-count {
+  margin: 0;
+  font-size: 14px;
+}
+
+.social-input-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.socials-section {
+  flex-direction: column;
+  width: 60%;
+}
+.social-input-div p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.my-profile-btns {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: -120px;
+  margin-left: auto;
+  margin-right: 5vw;
+}
+
+.my-profile-btns button {
+  padding: 8px 15px;
+  border-radius: 6px;
+  width: 45%;
+  transition: all 0.2s ease;
+}
+
+.my-profile-btns button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 2px 5px #777;
+}
+
+#profile-cancel-btn {
+  color: black;
+  background-color: white;
+  /* border: 1px solid #c5c5c5; */
+}
+
+#profile-save-btn {
+  color: white;
+  background-color: var(--pink);
+}
+
+/* .my-bio > textarea::placeholder {
+  font
+} */
+
+@media (min-width: 300px) and (max-width: 820px) {
+  .my-profile {
+    width: 95vw;
+    margin-top: 10px;
+    margin-bottom: 10vh;
+  }
+  .my-profile-details {
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    top: -80px;
+  }
+  .my-bio {
+    align-items: flex-start;
+    width: 73%;
+  }
+  .socials-section {
+    width: 73%;
+  }
+  .my-profile-detail-div {
+    width: 100%;
+  }
+  .my-profile-detail-div > input {
+    width: 70%;
+  }
+  .my-profile-btns {
+    width: 70%;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .my-profile-btns > button {
+    margin: 5px;
+  }
+  #message {
+    width: 75%;
+  }
+}

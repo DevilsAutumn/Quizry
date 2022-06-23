@@ -27,6 +27,30 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/quizry/image/upload/v1653159606/Avatars/default-avatar_d4xidz.png",
     },
+    website: {
+      type: String,
+      trim: true,
+    },
+    bio: {
+      type: String,
+      trim: true,
+    },
+    linkedin: {
+      type: String,
+      trim: true,
+    },
+    instagram: {
+      type: String,
+      trim: true,
+    },
+    github: {
+      type: String,
+      trim: true,
+    },
+    twitter: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,

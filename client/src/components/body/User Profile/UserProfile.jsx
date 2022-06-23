@@ -60,11 +60,8 @@ const UserProfile = () => {
                   <img src={user.avatar} alt="" />
                 </div>
                 <div className="user-profile-stats">
-                  <h1 id="profile-username">
-                    Username: <p>{user.name}</p>
-                  </h1>
+                  <h1 id="profile-username">{user.name}</h1>
                   <h2>
-                    Role:
                     <p>
                       {user.role === 2
                         ? " Admin👑"
@@ -73,22 +70,74 @@ const UserProfile = () => {
                         : " User"}
                     </p>
                   </h2>
+                  {user.bio && <p>About: {user.bio}</p>}
+                  {user.website && (
+                    <p>
+                      My website:{" "}
+                      <a href={`${user.website}`} target="__blank">
+                        <u>{user.website}</u>
+                      </a>
+                    </p>
+                  )}
+                  {(user.linkedin ||
+                    user.instagram ||
+                    user.github ||
+                    user.twitter) && (
+                    <div className="user-socials">
+                      My Socials:{"  "}
+                      {user.linkedin && (
+                        <a href={`${user.linkedin}`} target="__blank">
+                          <img
+                            src="https://img.icons8.com/color/30/undefined/linkedin-circled--v1.png"
+                            alt="linkedin"
+                          />
+                        </a>
+                      )}
+                      {user.instagram && (
+                        <a href={`${user.instagram}`} target="__blank">
+                          <img
+                            src="https://img.icons8.com/fluency/30/undefined/instagram-new.png"
+                            alt="insta"
+                          />
+                        </a>
+                      )}
+                      {user.github && (
+                        <a href={`${user.github}`} target="__blank">
+                          <img
+                            src="https://img.icons8.com/fluency/30/undefined/github.png"
+                            alt="github"
+                          />
+                        </a>
+                      )}
+                      {user.twitter && (
+                        <a href={`${user.twitter}`} target="__blank">
+                          <img
+                            src="https://img.icons8.com/color/30/undefined/twitter--v1.png"
+                            alt="twitter"
+                          />
+                        </a>
+                      )}
+                    </div>
+                  )}
                   <div className="questions-stats">
                     <p>
                       Questions posted :{" "}
                       {QuesStats && QuesStats.totalcontribution
                         ? QuesStats.totalcontribution
                         : 0}
+                      &nbsp;|&nbsp;
                     </p>
                     <br />
                     <p>
                       Accepted :{" "}
                       {QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}
+                      &nbsp;|&nbsp;
                     </p>
                     <br />
                     <p>
                       Declined :{" "}
                       {QuesStats && QuesStats.declined ? QuesStats.declined : 0}
+                      &nbsp;|&nbsp;
                     </p>
                     <br />
                     <p>

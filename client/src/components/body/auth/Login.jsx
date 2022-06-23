@@ -19,6 +19,7 @@ const initalState = {
 
 const Login = () => {
   const [user, setUser] = useState(initalState);
+  const [pvisible, setPvisible] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -66,25 +67,44 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email">Email Address</label>
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                id="email"
-                value={email}
-                name="email"
-                onChange={handleChangeInput}
-              />
+              <div className="input-div">
+                <input
+                  type="text"
+                  placeholder="Enter your email address"
+                  id="email"
+                  value={email}
+                  name="email"
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                id="password"
-                value={password}
-                name="password"
-                onChange={handleChangeInput}
-              />
+              <div className="input-div">
+                <input
+                  type={pvisible ? "text" : "password"}
+                  placeholder="Enter your password"
+                  id="password"
+                  value={password}
+                  name="password"
+                  onChange={handleChangeInput}
+                />
+                {pvisible ? (
+                  <img
+                    src="https://img.icons8.com/cotton/20/undefined/surprise--v2.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setPvisible(!pvisible)}
+                  />
+                ) : (
+                  <img
+                    src="https://img.icons8.com/windows/20/undefined/closed-eye.png"
+                    id="pass-eye"
+                    alt="eye"
+                    onClick={() => setPvisible(!pvisible)}
+                  />
+                )}
+              </div>
             </div>
             <div className="row">
               <button type="submit">Login</button>

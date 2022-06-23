@@ -27,9 +27,11 @@
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  max-height: 50vh;
+  max-height: 38vh;
   overflow: auto;
   margin-bottom: 20px;
+  /* min-width: 20vw; */
+  text-align: center;
 }
 
 .top-contributors h2 {

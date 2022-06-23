@@ -34,6 +34,7 @@ const EvaluationScreen = () => {
       setLoading(false);
       err.response.data.msg && setErr(err.response.data.msg);
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleClick = async (e) => {
@@ -47,7 +48,9 @@ const EvaluationScreen = () => {
         }
       );
       setSuccess(res.data.msg);
-      navigate("/profile/evaluate");
+      setTimeout(() => {
+        navigate("/dashboard/evaluate");
+      }, 2000);
     } catch (err) {
       err.response.data.msg && setErr(err.response.data.msg);
     }
@@ -56,7 +59,7 @@ const EvaluationScreen = () => {
     setReason(e.target.value);
   };
   return (
-    <div className="profile-div">
+    <div className="profile-div evaluation-div">
       <div className="e-container p-card ">
         {Loading ? (
           <div className="loader">
@@ -74,7 +77,8 @@ const EvaluationScreen = () => {
               <h3>Author's name: {pendingQuestion.posted_by_name} </h3>
             </div>
             <div className="evaluating-question-main">
-              {}
+              {success && showSuccessMsg(success)}
+              {err && showErrMsg(err)}
               <p>
                 <b>Question : </b>
                 {pendingQuestion.question}

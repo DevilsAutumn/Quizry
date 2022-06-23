@@ -6,66 +6,22 @@
   flex-direction: row;
   background-color: var(--blue);
   padding: 0vw 5vw 0vw;
+  /* padding-bottom: 10vh; */
 }
 
 .p-card {
   background-color: white;
   /* height: 100%; */
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
   /* width: 80vw; */
   border-radius: 10px;
   position: relative;
   display: flex;
   align-items: c;
   justify-content: center;
-  flex-direction: row;
-  min-height: 75vh;
+  min-height: 15vh;
   z-index: 1;
-  margin-right: 5vw;
-}
-
-.p-avatar {
-  background-color: grey;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  position: absolute;
-  overflow: hidden;
-  cursor: pointer;
-  margin-left: 90px;
-  margin-top: 10px;
-}
-
-.p-avatar img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.p-avatar span {
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: #fff8;
-  text-align: center;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: black;
-  transition: 0.3s ease-in-out;
-}
-.p-avatar:hover span {
-  bottom: -10%;
-}
-#file_up {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  opacity: 0;
+  padding: 10px;
 }
 
 .p-info {
@@ -85,8 +41,45 @@
   overflow-y: auto;
   z-index: 1;
 }
+
+.p-user-details label {
+  display: block;
+  margin-top: 5px;
+}
+.p-user-details input {
+  width: 95%;
+  height: 40px;
+  margin: 5px 0;
+  border: none;
+  outline: none;
+  background: #fee;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+.p-user-details button {
+  background: var(--pink);
+  color: white;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.p-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-user-details button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 2px 5px #777;
+}
+
 .p-contributions {
-  padding: 20px;
+  padding: 10px;
   width: 97%;
   overflow: auto;
 }
@@ -117,13 +110,13 @@
 
 .contribution-head-left > h2 {
   font-family: "Outfit", sans-serif;
-  font-size: 1.2vw;
+
   display: inline-block;
 }
 
 .p-user-details {
-  margin-top: 180px;
-  padding: 0px 35px;
+  margin-top: 10px;
+  padding: 0px 5px;
 }
 .role {
   text-align: center;
@@ -132,38 +125,36 @@
   display: flex;
   justify-content: center;
 }
-.p-user-details label {
-  display: block;
-  margin-top: 5px;
-}
-.p-user-details input {
-  width: 95%;
-  height: 40px;
-  margin: 5px 0;
-  border: none;
-  outline: none;
-  background: #fee;
-  padding: 0 8px;
-  border-radius: 8px;
-}
-.p-user-details button {
-  background: var(--pink);
-  color: white;
+
+.p-card a {
+  color: black;
+  background-color: white;
   padding: 10px 25px;
   text-transform: uppercase;
   letter-spacing: 1.4px;
   margin: 10px 0;
-  border-radius: 8px;
+  border-radius: 19px 8px 8px 19px;
   transition: all 0.2s ease;
-  width: 100%;
+  width: 80%;
 }
+
 .p-btns {
   display: flex;
   flex-direction: column;
 }
 
-.p-user-details button:hover {
-  transform: scale(1.1);
+.p-btns > .active {
+  background: var(--pink);
+  width: 90%;
+  color: white;
+  box-shadow: 0px 2px 5px #777;
+}
+
+.p-card a:hover {
+  /* transform: scale(1.1); */
+  background: var(--pink);
+  width: 90%;
+  color: white;
   box-shadow: 0px 2px 5px #777;
 }
 
@@ -180,6 +171,13 @@
   padding: 8px;
   max-width: 500px;
   overflow-wrap: break-word;
+}
+
+.allusers tr {
+  font-weight: 100;
+}
+.allusers th {
+  font-weight: 400;
 }
 
 #status-head {
@@ -250,7 +248,7 @@
 
 .e-container {
   width: 60vw;
-  height: 86vh;
+  min-height: 79vh;
 }
 
 .evaluating-question-main {
@@ -259,7 +257,7 @@
   align-items: left;
 }
 .evaluating-question-main > p {
-  font-size: 1vw;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 .evaluation-heading {
@@ -268,6 +266,10 @@
   justify-content: space-around;
   margin: 10px;
   margin-bottom: 30px;
+}
+
+.evaluation-heading > h3 {
+  font-size: 16px;
 }
 
 .loader {
@@ -299,19 +301,39 @@
   transform: scale(1.2);
   box-shadow: 0px 2px 5px #777;
 }
-textarea {
+
+.evaluator-actions > textarea {
   font-size: 17px;
   margin-top: 20px;
   padding: 5px;
 }
+
+.dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 80%;
+  padding: 10px;
+}
+.dashboard-welcome > h1 {
+  margin-bottom: 40px;
+}
+
+.dashboard-welcome li {
+  padding: 10px;
+}
+
 @media (min-width: 300px) and (max-width: 820px) {
   .profile-div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 10vh;
   }
   .p-card {
-    width: 95%;
+    width: 75%;
   }
   .profile-content {
     height: 80vh;
@@ -323,5 +345,26 @@ textarea {
   }
   .contribution-head > h3 {
     font-size: 3vw;
+  }
+  .contribution-head-left > h2 {
+    font-size: 12px;
+  }
+  .e-container {
+    width: 90vw;
+    min-height: 79vh;
+  }
+  .e-btns {
+    width: 100%;
+  }
+  .evaluating-question-main > p {
+    font-size: 12px;
+  }
+  .evaluation-heading > h3 {
+    font-size: 10px;
+  }
+  .evaluator-actions > textarea {
+    font-size: 12px;
+    margin-top: 20px;
+    padding: 5px;
   }
 }

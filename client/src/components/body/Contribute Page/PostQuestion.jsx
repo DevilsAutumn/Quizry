@@ -5,7 +5,8 @@ import {
   showSuccessMsg,
 } from "../../Utils/Notification/Notification";
 import { useSelector } from "react-redux";
-import { RevolvingDot } from "react-loader-spinner";
+
+import Loader from "../../Loader/Loader";
 const initalDataState = {
   question: "",
   category: "",
@@ -278,12 +279,7 @@ const PostQuestion = () => {
         </div>
         {loading ? (
           <div className="loader">
-            <RevolvingDot
-              height="100"
-              width="100"
-              color="#c01616"
-              ariaLabel="loading"
-            />
+            <Loader />
           </div>
         ) : (
           <table className="allusers contributor-list">

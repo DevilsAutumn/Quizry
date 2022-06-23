@@ -189,13 +189,28 @@ const userCtrl = {
   },
   updateUser: async (req, res) => {
     try {
-      const { name, avatar } = req.body;
+      const {
+        name,
+        avatar,
+        website,
+        bio,
+        linkedin,
+        instagram,
+        github,
+        twitter,
+      } = req.body;
 
       await Users.findOneAndUpdate(
         { _id: req.user.id },
         {
           name,
           avatar,
+          website,
+          bio,
+          linkedin,
+          instagram,
+          github,
+          twitter,
         }
       );
 
@@ -224,7 +239,7 @@ const userCtrl = {
         }
       );
 
-      res.json({ msg: "updated successfully" });
+      res.json({ msg: "Saved successfully" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

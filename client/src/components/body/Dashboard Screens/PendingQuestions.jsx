@@ -60,7 +60,7 @@ const PendingQuestions = () => {
                 <td style={{ backgroundColor: "Yellow" }}>{q.status}</td>
                 <td>{q.posted_by_name}</td>
                 <td>
-                  <Link to={`/profile/evaluate/question=${q._id}`}>
+                  <Link to={`/dashboard/evaluate/question=${q._id}`}>
                     <u>Evaluate</u>
                   </Link>
                 </td>

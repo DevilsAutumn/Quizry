@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./contribute.css";
 import axios from "axios";
-import { RevolvingDot } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import Loader from "../../Loader/Loader";
+import { Doughnut } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
 const Contribute = () => {
   const [loading, setLoading] = useState(false);
@@ -25,6 +27,25 @@ const Contribute = () => {
     setStats(res.data[0]);
   };
 
+  const state = {
+    labels: ["Accepted", "Declined", "Pending"],
+    datasets: [
+      {
+        label: "Stats",
+        data: [
+          stats.AcceptedQuestions,
+          stats.DeclinedQuestions,
+          stats.pendingQuestion,
+        ],
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
   const setsearchdata = () => {
     // if (allQuestions && allQuestions.question.includes(searchresults)) {
     //   setAllQuestions(allQuestions);
@@ -151,11 +172,15 @@ const Contribute = () => {
           </table>
         </div>
         <div className="top-contributors">
-          <h1>Stats</h1>
-          <h3>Total Questions: {stats.TotalQuestions}</h3>
-          <h3>Accepted : {stats.AcceptedQuestions}</h3>
-          <h3>Declined : {stats.DeclinedQuestions}</h3>
-          <h3>Pending : {stats.pendingQuestion}</h3>
+          <h3>Total Questions Posted: {stats.TotalQuestions}</h3>
+          <Doughnut
+            data={state}
+            options={{
+              animation: {
+                animateRotate: true,
+              },
+            }}
+          />
         </div>
       </div>
       <div className="pink-band"></div>
