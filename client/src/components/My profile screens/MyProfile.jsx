@@ -44,7 +44,7 @@ const MyProfile = () => {
         bio: res.data.bio,
         linkedin: res.data.linkedin,
         instagram: res.data.instagram,
-        github: res.data.instagram,
+        github: res.data.github,
         twitter: res.data.twitter,
       });
   };
