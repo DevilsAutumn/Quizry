@@ -155,7 +155,6 @@ const UserProfile = () => {
                     <tr>
                       <th>Question/Statement</th>
                       <th id="status-head">Status</th>
-                      <th>Reason</th>
                     </tr>
                   </thead>
                   {err && showErrMsg(err)}
@@ -180,7 +179,6 @@ const UserProfile = () => {
                         >
                           {q.status}
                         </td>
-                        <td>{q.reason}</td>
                       </tr>
                     ))}
                   </tbody>
