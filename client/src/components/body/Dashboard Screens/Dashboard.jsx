@@ -30,7 +30,6 @@ const Profile = () => {
   const { user, isAdmin, isEvaluator } = auth;
   const [data, setData] = useState(initialState);
 
-  const [loading, setLoading] = useState(false);
   const [callback, setCallback] = useState(false);
 
   const dispatch = useDispatch();
@@ -43,17 +42,16 @@ const Profile = () => {
     }
   }, [token, isAdmin, dispatch, callback]);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, name) => {
     try {
       if (user._id !== id) {
         if (
-          window.confirm(`Are you sure you want to delete ${id}'s account?`)
+          window.confirm(`Are you sure you want to delete ${name}'s account?`)
         ) {
-          setLoading(true);
           await axios.delete(`/user/delete/${id}`, {
             headers: { Authorization: token },
           });
-          setLoading(false);
+
           setCallback(!callback);
         }
       }

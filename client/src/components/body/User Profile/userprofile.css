@@ -20,7 +20,13 @@
   border-radius: 8px;
   color: white;
   padding: 10px;
+  transition: 0.3s ease-in-out;
   /* margin-bottom: 20px; */
+}
+
+.upper-user-profile:hover {
+  transform: translateY(-20px) scale(1.02);
+  border-radius: 8px 8px 0px 0px;
 }
 
 .user-profile-pic {

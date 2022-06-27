@@ -29,17 +29,17 @@ const PendingQuestions = () => {
       <div className="p-contributions">
         <div className="contribution-head">
           <div className="contribution-head-left">
-            <h1>Evaluate</h1>
             <img
               src="https://img.icons8.com/ios-glyphs/30/000000/refresh--v1.png"
               alt="refresh"
               onClick={getPendingQuestions}
             />
+            <h1>Evaluate</h1>
           </div>
-          <h2>
+          <p>
             Total Pending Questions:{" "}
-            {PendingQuestions ? PendingQuestions.length : "0"}
-          </h2>
+            <b>{PendingQuestions ? PendingQuestions.length : "0"}</b>
+          </p>
         </div>
         {err && showErrMsg(err)}
         <table className="allusers">
