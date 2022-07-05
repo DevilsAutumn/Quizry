@@ -25,7 +25,7 @@
 }
 
 .upper-user-profile:hover {
-  transform: translateY(-20px) scale(1.02);
+  transform: translateY(-20px) scale(1.02, 1.02);
   border-radius: 8px 8px 0px 0px;
 }
 
@@ -124,5 +124,8 @@
   }
   .questions-stats p {
     padding: 0;
+  }
+  .upper-user-profile:hover {
+    transform: translateY(-12px) scale(1.05, 1.05);
   }
 }

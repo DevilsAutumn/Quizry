@@ -62,14 +62,10 @@ const Profile = () => {
 
   return (
     <div className="profile-div">
-      <div className="p-card">
-        <div className="p-btns">
-          <NavLink to="/dashboard/my-contributions">My contributions</NavLink>
-          {user.role > 0 && (
-            <NavLink to="/dashboard/evaluate">Evaluate</NavLink>
-          )}
-          {isAdmin && <NavLink to="/dashboard/all-users">See Users</NavLink>}
-        </div>
+      <div className=" p-card p-btns">
+        <NavLink to="/dashboard/my-contributions">My contributions</NavLink>
+        {user.role > 0 && <NavLink to="/dashboard/evaluate">Evaluate</NavLink>}
+        {isAdmin && <NavLink to="/dashboard/all-users">See Users</NavLink>}
       </div>
       <div className="profile-content">
         <Routes>
@@ -82,7 +78,7 @@ const Profile = () => {
             }
           />
           <Route
-            path="/evaluate"
+            path="/evaluate/*"
             element={(isAdmin || isEvaluator) && <PendingQuestions />}
           />
         </Routes>

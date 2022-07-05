@@ -65,7 +65,6 @@ const PostQuestion = () => {
       if (type === "True/False" && options.length < 2)
         return setErr("Please fill all options.");
 
-      setData(initalDataState);
       const res = await axios.post("/user/add_question", data, {
         headers: { Authorization: token },
       });
@@ -73,6 +72,7 @@ const PostQuestion = () => {
       setErr();
       getAllQuestions();
       setQuesType("");
+      setData({ options: [] });
       setTimeout(() => {
         setSuccess();
       }, 2000);

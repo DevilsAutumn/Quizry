@@ -13,7 +13,7 @@
   background-color: white;
   /* height: 100%; */
   margin-top: 5vh;
-  /* width: 80vw; */
+  /* width: 50vw; */
   border-radius: 10px;
   position: relative;
   display: flex;
@@ -69,8 +69,10 @@
 }
 
 .p-btns {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  margin-right: 30px;
 }
 
 .p-user-details button:hover {
@@ -249,7 +251,6 @@
 
 .e-container {
   width: 60vw;
-  min-height: 79vh;
 }
 
 .evaluating-question-main {
