@@ -62,7 +62,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="login-div">
+    <div className="login-div bg-gradient">
       <div className="login-page">
         <div className="logo-div">
           <img src={logingif} alt="" />
@@ -136,7 +136,6 @@ const ResetPassword = () => {
           </div>
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

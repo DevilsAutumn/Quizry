@@ -37,6 +37,7 @@ const PendingQuestions = () => {
             <img
               src="https://img.icons8.com/ios-glyphs/30/000000/refresh--v1.png"
               alt="refresh"
+              title="Refresh"
               onClick={getPendingQuestions}
             />
             <h1>Evaluate</h1>

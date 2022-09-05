@@ -237,7 +237,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="profile-div ">
+    <div className="profile-div bg-gradient">
       <div className="my-profile">
         <div className="profile-banner"></div>
         <div className="my-profile-main">
@@ -435,7 +435,6 @@ const MyProfile = () => {
           </div>
         </div>
       </div>
-      <div className="pink-band profile-bottom-band"></div>
     </div>
   );
 };

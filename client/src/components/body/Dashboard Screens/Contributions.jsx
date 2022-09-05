@@ -39,6 +39,7 @@ const Contributions = () => {
             <img
               src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/48/000000/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png"
               alt="post-question"
+              title="Post Question"
             />
           </Link>
           <h2>My Contributions</h2>

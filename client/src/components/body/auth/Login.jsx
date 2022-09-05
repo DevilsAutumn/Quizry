@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-div">
+    <div className="login-div bg-gradient">
       <div className="login-page">
         <div className="logo-div">
           <img src={logingif} alt="" />
@@ -123,7 +123,6 @@ const Login = () => {
           <div className="social-login"></div> */}
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

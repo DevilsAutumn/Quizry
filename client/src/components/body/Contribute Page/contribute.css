@@ -1,5 +1,6 @@
 .contribute-page {
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
+
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
@@ -27,7 +28,7 @@
   background-color: white;
   border-radius: 8px;
   padding: 20px;
-  max-height: 38vh;
+  max-width: 44vh;
   overflow: auto;
   margin-bottom: 20px;
   /* min-width: 20vw; */
@@ -64,12 +65,11 @@
   overflow-wrap: break-word;
 }
 
-.contribution-head {
-  margin-top: 0;
-  min-width: 94%;
-}
 .contributor-right-col {
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .question-post,
 .question-form {
@@ -141,6 +141,11 @@ select {
   margin-right: 0;
 }
 
+@media (min-width: 821px) and (max-width: 1280px) {
+  .contribute-page {
+    font-size: 13px;
+  }
+}
 @media (min-width: 300px) and (max-width: 820px) {
   .all-questions,
   .search-ques {
@@ -155,11 +160,13 @@ select {
     justify-content: center;
     overflow-x: hidden;
   }
-  .pink-band {
-    display: none;
-  }
+
   .allusers {
     font-size: 8px;
+  }
+
+  .contribution-head {
+    width: 250%;
   }
 
   .contribution-head > h1 {
@@ -167,5 +174,8 @@ select {
   }
   .contributor-right-col {
     margin-top: 10vh;
+  }
+  .top-contributors {
+    width: 70%;
   }
 }

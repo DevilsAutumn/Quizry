@@ -96,7 +96,7 @@ const PostQuestion = () => {
   }, []);
 
   return (
-    <div className="contribute-page">
+    <div className="contribute-page bg-gradient">
       <div className="all-questions question-post">
         <h1>Post Question</h1>
         <p>
@@ -326,7 +326,6 @@ const PostQuestion = () => {
           </table>
         )}
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

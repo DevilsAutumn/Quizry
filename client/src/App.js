@@ -42,12 +42,10 @@ function App() {
 
   return (
     <Router>
-      <div className="App" id="outer-container">
-        <Header pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
-        <div id="page-wrap">
-          <Body />
-          <Footer />
-        </div>
+      <div className="App">
+        <Header />
+        <Body />
+        <Footer />
       </div>
     </Router>
   );

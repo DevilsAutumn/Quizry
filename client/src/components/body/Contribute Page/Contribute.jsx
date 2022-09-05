@@ -69,7 +69,7 @@ const Contribute = () => {
   }, [searchresults]);
 
   return (
-    <div className="contribute-page">
+    <div className="contribute-page bg-gradient">
       <div className="all-questions">
         <div className="contribution-head p-user-details">
           <h1>All Questions</h1>
@@ -89,6 +89,7 @@ const Contribute = () => {
             <button>Post Question</button>
           </Link>
         </div>
+
         {loading ? (
           <div className="loader">
             <Loader />
@@ -145,6 +146,7 @@ const Contribute = () => {
           </table>
         )}
       </div>
+
       <div className="contributor-right-col">
         <div className="top-contributors">
           <h2>Top Contributors</h2>
@@ -183,7 +185,6 @@ const Contribute = () => {
           />
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

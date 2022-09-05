@@ -61,7 +61,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-div">
+    <div className="profile-div bg-gradient">
       <div className=" p-card p-btns">
         <NavLink to="/dashboard/my-contributions">My contributions</NavLink>
         {user.role > 0 && <NavLink to="/dashboard/evaluate">Evaluate</NavLink>}
@@ -83,7 +83,6 @@ const Profile = () => {
           />
         </Routes>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

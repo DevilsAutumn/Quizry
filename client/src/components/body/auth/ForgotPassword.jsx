@@ -35,7 +35,7 @@ const ForgotPassword = () => {
     }
   };
   return (
-    <div className="login-div">
+    <div className="login-div bg-gradient">
       <div className="login-page">
         <div className="logo-div">
           <img src={logingif} alt="" />
@@ -66,7 +66,6 @@ const ForgotPassword = () => {
           </div>
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

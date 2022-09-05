@@ -46,7 +46,7 @@ const UserProfile = () => {
   }, [id]);
 
   return (
-    <div className="profile-div">
+    <div className="profile-div bg-gradient">
       <div className="user-profile-card">
         {loading ? (
           <div className="loader">
@@ -188,7 +188,6 @@ const UserProfile = () => {
           )
         )}
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };
