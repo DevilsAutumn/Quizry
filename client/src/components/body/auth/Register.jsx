@@ -86,7 +86,7 @@ const Register = () => {
   };
 
   return (
-    <div className="login-div">
+    <div className="login-div bg-gradient">
       <div className="login-page">
         <div className="logo-div">
           <img src={logingif} alt="" />
@@ -192,7 +192,6 @@ const Register = () => {
           </p>
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

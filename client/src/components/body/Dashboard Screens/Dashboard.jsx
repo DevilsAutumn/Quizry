@@ -30,7 +30,6 @@ const Profile = () => {
   const { user, isAdmin, isEvaluator } = auth;
   const [data, setData] = useState(initialState);
 
-  const [loading, setLoading] = useState(false);
   const [callback, setCallback] = useState(false);
 
   const dispatch = useDispatch();
@@ -43,17 +42,16 @@ const Profile = () => {
     }
   }, [token, isAdmin, dispatch, callback]);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, name) => {
     try {
       if (user._id !== id) {
         if (
-          window.confirm(`Are you sure you want to delete ${id}'s account?`)
+          window.confirm(`Are you sure you want to delete ${name}'s account?`)
         ) {
-          setLoading(true);
           await axios.delete(`/user/delete/${id}`, {
             headers: { Authorization: token },
           });
-          setLoading(false);
+
           setCallback(!callback);
         }
       }
@@ -63,15 +61,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-div">
-      <div className="p-card">
-        <div className="p-btns">
-          <NavLink to="/dashboard/my-contributions">My contributions</NavLink>
-          {user.role > 0 && (
-            <NavLink to="/dashboard/evaluate">Evaluate</NavLink>
-          )}
-          {isAdmin && <NavLink to="/dashboard/all-users">See Users</NavLink>}
-        </div>
+    <div className="profile-div bg-gradient">
+      <div className=" p-card p-btns">
+        <NavLink to="/dashboard/my-contributions">My contributions</NavLink>
+        {user.role > 0 && <NavLink to="/dashboard/evaluate">Evaluate</NavLink>}
+        {isAdmin && <NavLink to="/dashboard/all-users">See Users</NavLink>}
       </div>
       <div className="profile-content">
         <Routes>
@@ -84,12 +78,11 @@ const Profile = () => {
             }
           />
           <Route
-            path="/evaluate"
+            path="/evaluate/*"
             element={(isAdmin || isEvaluator) && <PendingQuestions />}
           />
         </Routes>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

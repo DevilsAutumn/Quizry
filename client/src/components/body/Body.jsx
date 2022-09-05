@@ -11,7 +11,7 @@ import Dashboard from "./Dashboard Screens/Dashboard";
 import EditUser from "./Dashboard Screens/EditUser";
 import "./body.css";
 import { useSelector } from "react-redux";
-import EvaluationScreen from "./Dashboard Screens/EvaluationScreen";
+
 import Contribute from "./Contribute Page/Contribute";
 import PostQuestion from "./Contribute Page/PostQuestion";
 import Api from "./API/Api";
@@ -22,7 +22,7 @@ import MyProfile from "../My profile screens/MyProfile";
 const Body = () => {
   const auth = useSelector((state) => state.rootReducer.auth);
 
-  const { isLogged, isAdmin, isEvaluator } = auth;
+  const { isLogged, isAdmin } = auth;
 
   return (
     <>
@@ -87,11 +87,11 @@ const Body = () => {
           element={isAdmin ? <Dashboard /> : <NotFound />}
           exact
         /> */}
-        <Route
+        {/* <Route
           path="/dashboard/evaluate/question=:id"
           element={isAdmin || isEvaluator ? <EvaluationScreen /> : <NotFound />}
           exact
-        />
+        /> */}
         <Route
           path="/dashboard/all-users/edit-user/:id"
           element={isAdmin ? <EditUser /> : <NotFound />}

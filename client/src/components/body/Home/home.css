@@ -15,10 +15,13 @@
   display: flex;
   align-items: center;
 }
-.heading-home > img {
+
+#home-logo {
   height: 19vw;
+  position: relative;
   margin-bottom: auto;
 }
+
 .home-div p {
   font-size: 1.5vw;
   color: white;
@@ -68,7 +71,7 @@
   justify-content: center;
 }
 
-.home-band > img {
+#home-gif {
   position: absolute;
   width: 27vw;
 }
@@ -231,5 +234,16 @@
   }
   .counter-div {
     background-color: var(--blue);
+  }
+  @keyframes move {
+    0% {
+      transform: translate(-100px) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50px) rotate(180deg);
+    }
+    100% {
+      transform: translate(0px) rotate(360deg);
+    }
   }
 }

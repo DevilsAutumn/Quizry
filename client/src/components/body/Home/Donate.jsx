@@ -2,7 +2,7 @@ import React from "react";
 
 const Donate = () => {
   return (
-    <div className="donate-page">
+    <div className="donate-page bg-gradient">
       <div className="donate-div">
         <h1>Donate to Quizry</h1>
         <p>
@@ -22,7 +22,6 @@ const Donate = () => {
           <button id="donate-btn">Donate now</button>
         </a>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

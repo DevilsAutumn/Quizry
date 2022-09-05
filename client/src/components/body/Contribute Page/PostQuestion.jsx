@@ -65,7 +65,6 @@ const PostQuestion = () => {
       if (type === "True/False" && options.length < 2)
         return setErr("Please fill all options.");
 
-      setData(initalDataState);
       const res = await axios.post("/user/add_question", data, {
         headers: { Authorization: token },
       });
@@ -73,6 +72,7 @@ const PostQuestion = () => {
       setErr();
       getAllQuestions();
       setQuesType("");
+      setData({ options: [] });
       setTimeout(() => {
         setSuccess();
       }, 2000);
@@ -96,7 +96,7 @@ const PostQuestion = () => {
   }, []);
 
   return (
-    <div className="contribute-page">
+    <div className="contribute-page bg-gradient">
       <div className="all-questions question-post">
         <h1>Post Question</h1>
         <p>
@@ -326,7 +326,6 @@ const PostQuestion = () => {
           </table>
         )}
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

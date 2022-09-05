@@ -39,34 +39,31 @@ const Contributions = () => {
             <img
               src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/48/000000/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png"
               alt="post-question"
+              title="Post Question"
             />
           </Link>
           <h2>My Contributions</h2>
-          <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/refresh--v1.png"
-            alt="refresh"
-            id="refresh"
-            onClick={() => {
-              fetchUserQuestions();
-              getQuestionStats();
-            }}
-          />
         </div>
-        <h3>
+        <p>
           Total:{" "}
-          {QuesStats && QuesStats.totalcontribution
-            ? QuesStats.totalcontribution
-            : 0}
-        </h3>
-        <h3>
-          Accepted: {QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}
-        </h3>
-        <h3>
-          Declined: {QuesStats && QuesStats.declined ? QuesStats.declined : 0}
-        </h3>
-        <h3>
-          Pending: {QuesStats && QuesStats.pending ? QuesStats.pending : 0}
-        </h3>
+          <b>
+            {QuesStats && QuesStats.totalcontribution
+              ? QuesStats.totalcontribution
+              : 0}
+          </b>
+        </p>
+        <p>
+          Accepted:{" "}
+          <b>{QuesStats && QuesStats.accepted ? QuesStats.accepted : 0}</b>
+        </p>
+        <p>
+          Declined:{" "}
+          <b>{QuesStats && QuesStats.declined ? QuesStats.declined : 0}</b>
+        </p>
+        <p>
+          Pending:{" "}
+          <b>{QuesStats && QuesStats.pending ? QuesStats.pending : 0}</b>
+        </p>
       </div>
       {err && showErrMsg(err)}
       <table className="allusers">

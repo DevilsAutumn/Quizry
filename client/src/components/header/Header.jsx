@@ -3,8 +3,7 @@ import "./header.css";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-// import { Spin as Hamburger } from "hamburger-react";
-import { scaleRotate as Menu } from "react-burger-menu";
+import { Spin as Hamburger } from "hamburger-react";
 
 const Header = (props) => {
   const auth = useSelector((state) => state.rootReducer.auth);
@@ -30,6 +29,17 @@ const Header = (props) => {
       let container = document.getElementById("drop-nav");
       if (!container.contains(e.target)) {
         setDd(false);
+      }
+    },
+    true
+  );
+
+  document.body.addEventListener(
+    "click",
+    function (e) {
+      let container = document.getElementById("navbar");
+      if (!container.contains(e.target)) {
+        setIsOpen(false);
       }
     },
     true
@@ -80,10 +90,9 @@ const Header = (props) => {
 
   return (
     <>
-      <div className="navbar">
-        <Menu {...props} className="menu">
-          {/* <header className={isOpen && "nav-open"} id="header"> */}
-
+      <div className="navbar" id="navbar">
+        {/* <Menu {...props} className="menu"> */}
+        <header className={isOpen && "nav-open"} id="header">
           <NavLink to="/" activeclassname="active" onClick={CloseNav}>
             Home
           </NavLink>
@@ -99,13 +108,13 @@ const Header = (props) => {
           <a href="mailto:quizryapp@gmail.com" target="_blank" rel="noreferrer">
             Contact Us
           </a>
-          {/* </header> */}
-        </Menu>
-        {/* <Hamburger
+        </header>
+        {/* </Menu> */}
+        <Hamburger
           toggled={isOpen}
           onToggle={() => setIsOpen(!isOpen)}
           id="hamburger"
-        /> */}
+        />
         {isLogged ? (
           userLink()
         ) : (

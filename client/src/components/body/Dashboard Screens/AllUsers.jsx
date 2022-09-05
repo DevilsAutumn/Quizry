@@ -6,7 +6,9 @@ const AllUsers = ({ users, handleDelete }) => {
     <div className="p-contributions">
       <div className="contribution-head">
         <h1>Users</h1>
-        <h2>Total Users: {users.length}</h2>
+        <p>
+          Total Users: <b>{users.length}</b>
+        </p>
       </div>
       <table className="allusers">
         <thead>
@@ -41,7 +43,7 @@ const AllUsers = ({ users, handleDelete }) => {
                 <i
                   className="fa fa-trash-o action-icon"
                   aria-hidden="true"
-                  onClick={() => handleDelete(user._id)}
+                  onClick={() => handleDelete(user._id, user.name)}
                 ></i>
               </td>
             </tr>

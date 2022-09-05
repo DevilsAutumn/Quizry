@@ -88,7 +88,7 @@ const EditUser = () => {
   };
 
   return (
-    <div className="p-div profile-div">
+    <div className="p-div profile-div bg-gradient">
       <div className="p-card" id="right-col">
         <div className="p-info" id="p-info">
           <div className="p-user-details" id="p-user-details">
@@ -147,7 +147,6 @@ const EditUser = () => {
           </div>
         </div>
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };

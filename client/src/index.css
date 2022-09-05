@@ -33,8 +33,18 @@ button {
   --blue: #102443;
   --pink: #bc2376;
 }
-.app {
+.App {
   overflow-x: hidden;
 }
+
+/* background */
+.bg-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    var(--blue) 70%,
+    var(--pink) 30%
+  );
+}
+
 /*  font */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&family=Poppins&display=swap");

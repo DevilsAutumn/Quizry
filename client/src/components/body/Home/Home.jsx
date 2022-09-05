@@ -23,7 +23,7 @@ const Home = () => {
       <div className="home-div">
         <div className="head-content">
           <div className="heading-home">
-            <img src={logoWhite} alt="" />
+            <img src={logoWhite} alt="" id="home-logo" />
             <h1>uizry</h1>
           </div>
 
@@ -41,7 +41,7 @@ const Home = () => {
           </div>
         </div>
         <div className="home-band">
-          <img src={HomeGif} alt="gif" />
+          <img src={HomeGif} alt="gif" id="home-gif" />
         </div>
         <img src={HomeGif} alt="gif" id="mobile-gif" />
       </div>

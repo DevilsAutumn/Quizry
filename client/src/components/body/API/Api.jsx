@@ -32,7 +32,7 @@ const Api = () => {
   };
 
   return (
-    <div className="api-container contribute-page">
+    <div className="api-container contribute-page bg-gradient">
       <div className="all-questions api-page">
         <h1>API</h1>
         <p>
@@ -131,7 +131,6 @@ const Api = () => {
           </div>
         )}
       </div>
-      <div className="pink-band"></div>
     </div>
   );
 };
