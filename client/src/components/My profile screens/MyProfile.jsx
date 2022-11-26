@@ -206,16 +206,15 @@ const MyProfile = () => {
   };
 
   const handleUpdate = () => {
-    console.log(name);
     if (name.trim() === "") return setData({ err: "Username can't be empty!" });
 
     if (
-      bio.trim() === "" ||
-      website.trim() === "" ||
-      twitter.trim() === "" ||
-      instagram.trim() === "" ||
-      linkedin.trim() === "" ||
-      github.trim() === ""
+      (bio && bio.trim() === "") ||
+      (website && website.trim() === "") ||
+      (twitter && twitter.trim() === "") ||
+      (instagram && instagram.trim() === "") ||
+      (linkedin && linkedin.trim() === "") ||
+      (github && github.trim() === "")
     ) {
       DeleteInfo();
     }
