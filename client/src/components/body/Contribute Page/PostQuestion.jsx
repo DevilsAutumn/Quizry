@@ -99,10 +99,6 @@ const PostQuestion = () => {
     <div className="contribute-page bg-gradient">
       <div className="all-questions question-post">
         <h1>Post Question</h1>
-        <p>
-          <b>Note:</b> Please search the question by keywords on the right side
-          before posting it.
-        </p>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <form className="question-form" id="myForm">
@@ -261,6 +257,14 @@ const PostQuestion = () => {
         <button className="question-post-btn" onClick={sendData}>
           Post
         </button>
+        <div>
+          <b>Note:</b>
+          <p>
+            1. Please search the question by keywords on the right side before
+            posting it.
+          </p>
+          <p>2. Please check grammatical errors before posting a question.</p>
+        </div>
       </div>
       <div className="search-ques">
         <div className="searchbar p-user-details postq-searchbar">
