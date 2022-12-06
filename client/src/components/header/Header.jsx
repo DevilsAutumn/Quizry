@@ -108,6 +108,7 @@ const Header = (props) => {
           <a href="mailto:quizryapp@gmail.com" target="_blank" rel="noreferrer">
             Contact Us
           </a>
+          <h1>v1.3.7</h1>
         </header>
         {/* </Menu> */}
         <Hamburger

@@ -38,6 +38,11 @@ header > a {
   text-align: center;
 }
 
+header > h1 {
+  color: white;
+  margin-top: 200%;
+}
+
 header > a:nth-child(1) {
   margin-top: 70px;
 }
