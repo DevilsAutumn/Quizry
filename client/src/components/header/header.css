@@ -40,7 +40,7 @@ header > a {
 
 header > h1 {
   color: white;
-  margin-top: 200%;
+  margin-top: auto;
 }
 
 header > a:nth-child(1) {
