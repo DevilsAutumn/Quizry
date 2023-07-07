@@ -19,7 +19,7 @@ const Api = () => {
       return setErr("Maximum limit of amount is 30");
     }
     setUrl(
-      `www.quizry.in/api/amount=${amount}${
+      `www.quizry-server.onrender.com/api/amount=${amount}${
         (category || difficulty || type) && "?"
       }${category && `category=${category}`}${
         !category && difficulty ? `difficulty=${difficulty}` : ""
