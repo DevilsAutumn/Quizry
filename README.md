@@ -1,5 +1,6 @@
 # Quizry
 
-This was my first full stack project while I was learning MERN stack. From what I see 2 years later, there is so much scope of improvement. Would appreciate any contributions.
+Quizry is a user contributed trivia questions database, where anyone can post questions of their choice along with their options and answers. Once the questions are accepted by the admins they can be accessed via its own api and can be used to create Quiz related web applications easily.
 
-Dont forget to "Star" it :)
+## Setup
+TBC
