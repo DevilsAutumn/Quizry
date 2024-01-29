@@ -1,5 +1,6 @@
 .api-page {
   width: 45%;
+  height: 87vh;
   margin-right: 0;
   display: flex;
   flex-direction: column;
@@ -11,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+
 }
 
 .api-form {
